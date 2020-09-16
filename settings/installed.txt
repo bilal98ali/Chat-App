@@ -1,0 +1,2 @@
+com.google.services.firebase
+org.jetbrains.kotlin
