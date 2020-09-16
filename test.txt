@@ -1,8 +1,13 @@
 
 <<<<<<< HEAD
 yaohua hu was here
+<<<<<<< HEAD
 =======
-Felipe was here
+Felipe was here xu
 yaohua hu was here
 ricardo was here x2
 >>>>>>> 9ad0de7d4fbbee0ffdf73a296c80bb507b24eec9
+=======
+ricardo was here x2
+bilal was here
+>>>>>>> 48ce5949c1aa46681e82c6d23d7fd81e001fedc6
