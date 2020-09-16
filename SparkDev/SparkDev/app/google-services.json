@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "431264645577",
+    "firebase_url": "https://modernbabymonitor-7f13e.firebaseio.com",
+    "project_id": "modernbabymonitor-7f13e",
+    "storage_bucket": "modernbabymonitor-7f13e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:431264645577:android:badbfd78d9d2f166f06818",
+        "android_client_info": {
+          "package_name": "com.example.sparkdev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "431264645577-rq548jf408odjh8jnbp3u86kfjltapgp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUv7Qv5eKrIYvyQ3bMfaoC_eRGYo-heN4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "431264645577-s0jr29egl8fpvddfqud8o8f0ujukilk9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
