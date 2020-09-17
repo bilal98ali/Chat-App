@@ -17,5 +17,6 @@ ricardo was here x2
 =======
 ricardo was here x2
 bilal was here
+Michael was here
 >>>>>>> 48ce5949c1aa46681e82c6d23d7fd81e001fedc6
 >>>>>>> 41b4dc7cc5e6ed11e65bc8bb2615230864896812
