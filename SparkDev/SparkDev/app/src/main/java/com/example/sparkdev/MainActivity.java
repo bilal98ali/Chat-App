@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity
     private Toolbar mToolbar;
     private ViewPager myViewPager;
     private TabLayout myTabLayout;
+    private TabsAccessorAdapter myTabsAccessorAdapter;
 
     public MainActivity() {
     }
@@ -25,5 +26,15 @@ public class MainActivity extends AppCompatActivity
         mToolbar = (Toolbar) findViewById(R.id.main_page_toolbar);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setTitle("Howdy!"); // Title.
+
+        myViewPager = (ViewPager) findViewById(R.id.main_tabs_pager);
+        myTabsAccessorAdapter = new TabsAccessorAdapter(getSupportFragmentManager());
+        myViewPager.setAdapter(myTabsAccessorAdapter);
+
+        myTabLayout = (TabLayout) findViewById(R.id.main_tabs);
+        myTabLayout.setupWithViewPager(myViewPager);
+
+
+
     }
 }
