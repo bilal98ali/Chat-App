@@ -1,11 +1,14 @@
 package com.example.sparkdev;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -13,6 +16,7 @@ public class MainActivity extends AppCompatActivity
     private ViewPager myViewPager;
     private TabLayout myTabLayout;
     private TabsAccessorAdapter myTabsAccessorAdapter;
+    private FirebaseUser currentUser;
 
     public MainActivity() {
     }
@@ -37,4 +41,21 @@ public class MainActivity extends AppCompatActivity
 
 
     }
+
+    protected void onStart(){
+        super.onStart();
+
+        if(currentUser == null){
+            SendUserToLoginActivity();
+        }
+    }
+
+    private void SendUserToLoginActivity() {
+        Intent loginIntent = new Intent(MainActivity.this, LogInActivity.class);
+        startActivity(loginIntent);
+    }
+
+
+
+
 }
