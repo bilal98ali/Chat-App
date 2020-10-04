@@ -1,10 +1,12 @@
 package com.example.sparkdev;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import androidx.appcompat.widget.Toolbar;
@@ -13,6 +15,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+//import android.support.v7.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -38,7 +41,7 @@ public class MainActivity extends AppCompatActivity
 
         mToolbar = (Toolbar) findViewById(R.id.main_page_toolbar);
         setSupportActionBar(mToolbar);
-        getSupportActionBar().setTitle("Howdy!"); // Title.
+        getSupportActionBar().setTitle("SparkDev"); // Title.
 
         myViewPager = (ViewPager) findViewById(R.id.main_tabs_pager);
         myTabsAccessorAdapter = new TabsAccessorAdapter(getSupportFragmentManager());
@@ -46,6 +49,9 @@ public class MainActivity extends AppCompatActivity
 
         myTabLayout = (TabLayout) findViewById(R.id.main_tabs);
         myTabLayout.setupWithViewPager(myViewPager);
+
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
 
 
 
@@ -66,27 +72,21 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-         super.onCreateOptionsMenu(menu);
-        getMenuInflater().inflate(R.menu.options_menu,menu);
-
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.options_menu,menu);
         return true;
     }
 
-    public boolean onOptionItemSelected(MenuItem item){
-         super.onOptionsItemSelected(item);
-
-         if(item.getItemId() == R.id.main_logout_option){
-
-             mAuth.signOut();
-             SendUserToLoginActivity();
-         }
-         if(item.getItemId() == R.id.main_settings_option){
-
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.main_logout_option:
+                mAuth.signOut();
+                SendUserToLoginActivity();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-        if(item.getItemId() == R.id.main_find_friends_option){
-
-        }
-
-        return true;
     }
 }
