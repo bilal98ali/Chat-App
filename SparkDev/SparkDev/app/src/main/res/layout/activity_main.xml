@@ -11,27 +11,19 @@
     <include
         android:id="@+id/main_page_toolbar"
         layout="@layout/app_bar_layout"
-
         >
     </include>
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="wrap_content">
 
-        >
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/my_toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            android:elevation="4dp"
-            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
-
-
+        <include
+            android:id="@+id/main_page_toolbar"
+            layout="@layout/app_bar_layout"
+            >
+        </include>
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/main_tabs"
