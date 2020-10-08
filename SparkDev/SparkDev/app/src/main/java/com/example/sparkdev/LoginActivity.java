@@ -18,7 +18,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class LogInActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private ProgressDialog loadingBar;
@@ -78,12 +78,12 @@ public class LogInActivity extends AppCompatActivity {
                     if(task.isSuccessful())
                     {
                         SendUserToMainActivity();
-                        Toast.makeText(LogInActivity.this, "Logged in Successfully", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "Logged in Successfully", Toast.LENGTH_SHORT).show();
                         loadingBar.dismiss();
                     }
                     else {
                         String message = task.getException().toString();
-                        Toast.makeText(LogInActivity.this, "Error: " + message, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "Error: " + message, Toast.LENGTH_SHORT).show();
                         loadingBar.dismiss();
                     }
                    // loadingBar.dismiss();
@@ -108,14 +108,14 @@ public class LogInActivity extends AppCompatActivity {
 
     private void SendUserToMainActivity() {
         
-        Intent mainIntent = new Intent(LogInActivity.this, MainActivity.class);
+        Intent mainIntent = new Intent(LoginActivity.this, MainActivity.class);
         mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(mainIntent);
         finish();
     }
 
     private void SendUserToRegisterActivity() {
-        Intent registerIntent = new Intent(LogInActivity.this, RegisterActivity.class);
+        Intent registerIntent = new Intent(LoginActivity.this, RegisterActivity.class);
         startActivity(registerIntent);
     }
 }
