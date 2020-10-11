@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "95368537928-qlhds2ks7co7tv5gh9o8881leeqdrvva.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sparkdev",
+            "certificate_hash": "710b8ac6dddbc057b94588ee1512a73d430299c6"
+          }
+        },
+        {
           "client_id": "95368537928-o8fh144phn30hnbhjk8eh4etq22kfjd6.apps.googleusercontent.com",
           "client_type": 3
         }
