@@ -68,6 +68,10 @@ public class GroupChatActivity extends AppCompatActivity {
                 SaveMessageInfoToDatabase();
 
                 userMessageInput.setText("");
+
+                // TASK 22 - START - ALI
+                mScrollView.fullScroll(ScrollView.FOCUS_DOWN);
+                // TASK 22 - END - ALI
             }
         });
     }
@@ -191,6 +195,9 @@ public class GroupChatActivity extends AppCompatActivity {
 
             displayTextMessages.append(chatName + " :\n" + chatMessage + "\n" + chatTime + "     " + chatDate + "\n\n\n");
             // The code above deals with the formatting of the messages, when displayed.
+
+            mScrollView.fullScroll(ScrollView.FOCUS_DOWN);
+
         }
     }
     // TASK 21 - END OF STEP 2 - ALI
