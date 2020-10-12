@@ -24,8 +24,7 @@ import java.util.HashMap;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class SettingsActivity extends AppCompatActivity
-{
+public class SettingsActivity extends AppCompatActivity {
     private Button UpdateAccountSettings;
     private EditText userName, userStatus;
     private CircleImageView userProfileImage;
@@ -43,20 +42,11 @@ public class SettingsActivity extends AppCompatActivity
         currentUserID = mAuth.getCurrentUser().getUid();
         RootRef = FirebaseDatabase.getInstance().getReference();
 
-        // public void setContentView(int activity_settings) { }
-
-        // An issue for task #13 occurred where the 'Settings' option wasn't displaying
-        // in the emulator after the code was ran. One of our team members, Felipe, removed
-        // the line of code and ran it, which resulted in the 'Settings' page successfully displaying
-        // in the emulator. As for the reason, we aren't sure. Maybe due to an invalid int value, method, etc.
-
         InitializeFields();
-
-
 
         UpdateAccountSettings.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 UpdateSettings();
             }
         });
@@ -65,9 +55,12 @@ public class SettingsActivity extends AppCompatActivity
 
     }
 
+    // public void setContentView(int activity_settings) { }
 
-
-
+    // An issue for task #13 occurred where the 'Settings' option wasn't displaying
+    // in the emulator after the code was ran. One of our team members, Felipe, removed
+    // the line of code and ran it, which resulted in the 'Settings' page successfully displaying
+    // in the emulator. As for the reason, we aren't sure. Maybe due to an invalid int value, method, etc.
 
 
     private void InitializeFields()

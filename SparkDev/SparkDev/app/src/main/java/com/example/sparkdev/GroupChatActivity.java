@@ -4,7 +4,6 @@ package com.example.sparkdev;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ScrollView;
@@ -12,10 +11,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -25,6 +26,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.Iterator;
 
 //import android.support.v7.app.AppCompatActivity;
 
@@ -56,7 +58,6 @@ public class GroupChatActivity extends AppCompatActivity {
         GroupNameRef = FirebaseDatabase.getInstance().getReference().child("Groups").child(currentGroupName);
 
 
-
         InitializeFields();
 
         GetUserInfo();
@@ -72,6 +73,48 @@ public class GroupChatActivity extends AppCompatActivity {
     }
 
 
+    // TASK 21 - START OF STEP 1 - ALI
+    @Override
+    protected void onStart()
+    {
+        super.onStart();
+
+        GroupNameRef.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s)
+            {
+                if (dataSnapshot.exists())
+                {
+                    DisplayMessages(dataSnapshot);
+                }
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s)
+            {
+                if(dataSnapshot.exists())
+                {
+                    DisplayMessages(dataSnapshot);
+                }
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+    // TASK 21 - END OF STEP 1 - ALI
 
 
     private void InitializeFields() {
@@ -104,7 +147,7 @@ public class GroupChatActivity extends AppCompatActivity {
 
     private void SaveMessageInfoToDatabase() {
         String message = userMessageInput.getText().toString();
-        String messagekEY  = GroupNameRef.push().getKey();
+        String messageKEY  = GroupNameRef.push().getKey();
         // ^this is the spelling he used in the video, so I kept it like that even tho its ugly -Dani
 
         if(TextUtils.isEmpty(message)){
@@ -122,7 +165,7 @@ public class GroupChatActivity extends AppCompatActivity {
             HashMap<String, Object> groupMessageKey = new HashMap<>();
             GroupNameRef.updateChildren(groupMessageKey);
 
-            GroupMessageKeyRef = GroupNameRef.child(messagekEY);
+            GroupMessageKeyRef = GroupNameRef.child(messageKEY);
 
             HashMap<String, Object> messageInfoMap = new HashMap<>();
                 messageInfoMap.put("name", currentUserName);
@@ -132,4 +175,24 @@ public class GroupChatActivity extends AppCompatActivity {
              GroupMessageKeyRef.updateChildren(messageInfoMap);
         }
     }
+
+
+    // TASK 21 - START OF STEP 2 - ALI
+    private void DisplayMessages(DataSnapshot dataSnapshot)
+    {
+        Iterator iterator = dataSnapshot.getChildren().iterator();
+
+        while(iterator.hasNext())
+        {
+            String chatDate = (String) ((DataSnapshot)iterator.next()).getValue();
+            String chatMessage = (String) ((DataSnapshot)iterator.next()).getValue();
+            String chatName = (String) ((DataSnapshot)iterator.next()).getValue();
+            String chatTime = (String) ((DataSnapshot)iterator.next()).getValue();
+
+            displayTextMessages.append(chatName + " :\n" + chatMessage + "\n" + chatTime + "     " + chatDate + "\n\n\n");
+            // The code above deals with the formatting of the messages, when displayed.
+        }
+    }
+    // TASK 21 - END OF STEP 2 - ALI
+
 }
