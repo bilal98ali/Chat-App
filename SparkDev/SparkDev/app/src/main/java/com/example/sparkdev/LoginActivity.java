@@ -47,15 +47,17 @@ public class LoginActivity extends AppCompatActivity {
 
         LoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view) // IDE automatically names it as 'v', instead of 'view' (as shown in Step #23 video).
+            {
                 AllowUserToLogin();
             }
         });
 
         PhoneLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Intent phoneLoginIntent = new Intent (LoginActivity.this,PhoneLoginActivity.class);
+            public void onClick(View v)
+            {
+                Intent phoneLoginIntent = new Intent(LoginActivity.this, PhoneLoginActivity.class);
                 startActivity(phoneLoginIntent);
             }
         });
