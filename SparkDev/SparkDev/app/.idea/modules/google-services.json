@@ -1,42 +1,34 @@
 {
   "project_info": {
-    "project_number": "728811525208",
-    "firebase_url": "https://whatsapp-a21f1.firebaseio.com",
-    "project_id": "whatsapp-a21f1",
-    "storage_bucket": "whatsapp-a21f1.appspot.com"
+    "project_number": "1084592601917",
+    "firebase_url": "https://spookydev-305fiu.firebaseio.com",
+    "project_id": "spookydev-305fiu",
+    "storage_bucket": "spookydev-305fiu.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:728811525208:android:322c170874ac48deb0a62d",
+        "mobilesdk_app_id": "1:1084592601917:android:a24b195e142f0201a2e354",
         "android_client_info": {
           "package_name": "com.example.sparkdev"
         }
       },
       "oauth_client": [
         {
-          "client_id": "728811525208-5kl1oq49t8dtnkqortt4cukitob4pqt3.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.sparkdev",
-            "certificate_hash": "be154584eabc389b409c122aed0c2d8beb76e08e"
-          }
-        },
-        {
-          "client_id": "728811525208-j0vdadh57sl9dg0a506q7kdl8ldeutp8.apps.googleusercontent.com",
+          "client_id": "1084592601917-p47vfd0nrbhou05q410er13nbb0i4s9d.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBtslgTT90cFBGTq5wAxEEapHlpjcAHIrA"
+          "current_key": "AIzaSyCMAC_9AY5LGqDXUUYVHqQiE4bP9JvXjRc"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "728811525208-j0vdadh57sl9dg0a506q7kdl8ldeutp8.apps.googleusercontent.com",
+              "client_id": "1084592601917-p47vfd0nrbhou05q410er13nbb0i4s9d.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
