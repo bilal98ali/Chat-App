@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">95368537928-o8fh144phn30hnbhjk8eh4etq22kfjd6.apps.googleusercontent.com</string>
+    <string name="firebase_database_url" translatable="false">https://sparkdev-442cd.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">95368537928</string>
+    <string name="google_api_key" translatable="false">AIzaSyBMGsAlRX2Habv_QXSDyA_TRW_37l14I-8</string>
+    <string name="google_app_id" translatable="false">1:95368537928:android:881ea685a81ae69ce6357d</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBMGsAlRX2Habv_QXSDyA_TRW_37l14I-8</string>
+    <string name="google_storage_bucket" translatable="false">sparkdev-442cd.appspot.com</string>
+    <string name="project_id" translatable="false">sparkdev-442cd</string>
+</resources>
