@@ -27,7 +27,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     private CircleImageView userProfileImage;
     private TextView userProfileName, userProfileStatus;
-    private Button SendMessageRequestButton;
+    private Button SendMessageRequestButton, DeclineMessageRequestButton;
 
     private DatabaseReference UserRef, ChatRequestRef;
     private FirebaseAuth mAuth;
@@ -48,6 +48,7 @@ public class ProfileActivity extends AppCompatActivity {
         userProfileName = (TextView) findViewById(R.id.visit_user_name);
         userProfileStatus = (TextView) findViewById(R.id.visit_profile_status);
         SendMessageRequestButton = (Button) findViewById (R.id. send_message_request_button);
+        DeclineMessageRequestButton = (Button) findViewById (R.id. decline_message_request_button);
         Current_State = "new";
 
         RetrieveUserInfo();
@@ -99,6 +100,20 @@ public class ProfileActivity extends AppCompatActivity {
                         Current_State = "request_sent";
                         SendMessageRequestButton.setText("Cancel Chat Request");
                     }
+                    else if (request_type.equals("received")){
+                        Current_State = "request_received";
+                        SendMessageRequestButton.setText("Accept Chat Request");
+
+                        DeclineMessageRequestButton.setVisibility(View.VISIBLE);
+                        DeclineMessageRequestButton.setEnabled(true);
+
+                        DeclineMessageRequestButton.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                               // CancelChatRequest(); // missing from task 36
+                            }
+                        });
+                    }
                 }
             }
 
@@ -124,6 +139,14 @@ public class ProfileActivity extends AppCompatActivity {
             SendMessageRequestButton.setVisibility(View.INVISIBLE);
         }
     }
+    /*
+    To be added after Task 35
+        Within CancelChatRequest() method, and under
+        SendMessageRequestButton.setText("Send Message"); ...
+
+        DeclineMessageRequestButton.setVisibility(View.INVISIBLE)
+        DeclineMessageRequestButton.setEnabled(false);
+     */
     private void SendChatRequest() {
         ChatRequestRef.child(senderUserID).child(receiverUserID)
                 .child("request_type").setValue("sent")
