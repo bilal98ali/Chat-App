@@ -110,7 +110,7 @@ public class ProfileActivity extends AppCompatActivity {
                         DeclineMessageRequestButton.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                               // CancelChatRequest(); // missing from task 36
+                                CancelChatRequest();
                             }
                         });
                     }
@@ -132,6 +132,9 @@ public class ProfileActivity extends AppCompatActivity {
                     if(Current_State.equals("new")){
                         SendChatRequest();
                     }
+                    if(Current_State.equals("request_sent")){
+                        CancelChatRequest();
+                    }
                 }
             });
         }
@@ -139,14 +142,34 @@ public class ProfileActivity extends AppCompatActivity {
             SendMessageRequestButton.setVisibility(View.INVISIBLE);
         }
     }
-    /*
-    To be added after Task 35
-        Within CancelChatRequest() method, and under
-        SendMessageRequestButton.setText("Send Message"); ...
 
-        DeclineMessageRequestButton.setVisibility(View.INVISIBLE)
-        DeclineMessageRequestButton.setEnabled(false);
-     */
+    private void CancelChatRequest() {
+        ChatRequestRef.child(senderUserID).child(receiverUserID)
+                .removeValue()
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if(task.isSuccessful()){
+                            ChatRequestRef.child(receiverUserID).child(senderUserID)
+                                    .removeValue()
+                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if(task.isSuccessful()){
+                                                SendMessageRequestButton.setEnabled(true);
+                                                Current_State = "new";
+                                                SendMessageRequestButton.setText("Send Message");
+
+                                                DeclineMessageRequestButton.setVisibility(View.INVISIBLE);
+                                                DeclineMessageRequestButton.setEnabled(false);
+                                            }
+                                        }
+                                    });
+                        }
+                    }
+                });
+    }
+
     private void SendChatRequest() {
         ChatRequestRef.child(senderUserID).child(receiverUserID)
                 .child("request_type").setValue("sent")
