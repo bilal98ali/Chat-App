@@ -217,9 +217,11 @@ public class MainActivity extends AppCompatActivity
 
     private void SendUserToSettingsActivity() {
         Intent settingsIntent = new Intent(MainActivity.this, SettingsActivity.class);
-        settingsIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//        settingsIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(settingsIntent);
-        finish();
+//        finish();
+        //task43 removes settingsIntent and finish() line so back goes back button goes back to
+        //main activity.
     }
 
     private void SendUserToFindFriendsActivity() {
