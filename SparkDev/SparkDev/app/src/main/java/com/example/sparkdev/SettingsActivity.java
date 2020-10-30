@@ -13,6 +13,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -46,6 +47,8 @@ public class SettingsActivity extends AppCompatActivity {
     private static final int GalleryPick = 1;
     private StorageReference UserProfileImagesRef;
     private ProgressDialog loadingBar;
+
+    private Toolbar SettingsToolbar;
 
 
     @Override
@@ -95,6 +98,14 @@ public class SettingsActivity extends AppCompatActivity {
         userStatus = findViewById(R.id.set_profile_status);
         userProfileImage = findViewById(R.id.profile_image);
         loadingBar = new ProgressDialog(this);
+
+        SettingsToolbar = (Toolbar) findViewById(R.id.settings_toolbar);
+        setSupportActionBar((SettingsToolbar));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowCustomEnabled(true);
+        getSupportActionBar().setTitle("Account Settings");
+        // "Account Settings" top toolbar in Settings -kev task43
+
 
     }
 
