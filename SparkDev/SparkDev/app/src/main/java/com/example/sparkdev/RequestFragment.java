@@ -84,7 +84,10 @@ public class RequestFragment extends Fragment {
     public void onStart(){
         super.onStart();
 
-        FirebaseRecyclerOptions<Contacts>options = new FirebaseRecyclerOptions.Builder<Contacts>().setQuery(ChatRequestsRef, Contacts.class).build();
+        FirebaseRecyclerOptions<Contacts>options =
+                new FirebaseRecyclerOptions.Builder<Contacts>()
+                        .setQuery(ChatRequestsRef, Contacts.class)
+                        .build();
 
 
     }
