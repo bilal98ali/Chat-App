@@ -31,8 +31,8 @@ public class ChatActivity extends AppCompatActivity {
         setContentView(R.layout.activity_chat);
 
         messageReceiverID = getIntent().getExtras().get("visit_user_id").toString();
-        messageReceiverID = getIntent().getExtras().get("visit_user_name").toString();
-        messageReceiverID = getIntent().getExtras().get("visit_image").toString();
+        messageReceiverName = getIntent().getExtras().get("visit_user_name").toString();
+        messageReceiverImage = getIntent().getExtras().get("visit_image").toString();
 
         InitializeControllers();
 
