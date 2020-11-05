@@ -33,7 +33,6 @@ public class ChatsFragment extends Fragment {
 
     private View PrivateChatsView;
     private RecyclerView chatsList;
-
     private DatabaseReference ChatsRef, UsersRef;
     private FirebaseAuth mAuth;
     private String currentUserID;

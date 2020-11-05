@@ -19,6 +19,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.installations.FirebaseInstallations;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -87,9 +89,14 @@ public class RegisterActivity extends AppCompatActivity {
                         {
                             if(task.isSuccessful())
                             {
+                                String devicetoken = FirebaseInstanceId.getInstance().getToken();
+
                                 //SendUserToLoginActivity();
                                 String currentUserID = mAuth.getCurrentUser().getUid();
                                 RootRef.child("Users").child(currentUserID).setValue("");
+
+                                RootRef.child("Users").child(currentUserID).child("device_token")
+                                        .setValue(devicetoken);
 
                                 //SendUserToLoginActivity();
                                 SendUserToMainActivity();
