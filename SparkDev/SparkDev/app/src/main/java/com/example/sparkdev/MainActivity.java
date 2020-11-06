@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity
     private TabLayout myTabLayout;
     private TabsAccessorAdapter myTabsAccessorAdapter;
 
-    private FirebaseUser currentUser;
+   // private FirebaseUser currentUser;
     private FirebaseAuth mAuth;
     private DatabaseReference RootRef;
     private String currentUserID;
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
         mAuth = FirebaseAuth.getInstance();
-        currentUser = mAuth.getCurrentUser();
+        //currentUser = mAuth.getCurrentUser();
         RootRef = FirebaseDatabase.getInstance().getReference();
 
         mToolbar = findViewById(R.id.main_page_toolbar);
@@ -76,6 +76,8 @@ public class MainActivity extends AppCompatActivity
     protected void onStart(){
         super.onStart();
 
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+
         if(currentUser == null){
             SendUserToLoginActivity();
         }
@@ -89,8 +91,8 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onStop() {
         super.onStop();
+        
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        // ^ this line is not included in task 56 vid, but is necessary otherwise app crashes when logging out
 
         if (currentUser != null)
         {
@@ -103,8 +105,8 @@ public class MainActivity extends AppCompatActivity
     protected void onDestroy()
     {
         super.onDestroy();
+
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        // ^ this line is not included in task 56 vid, but is necessary otherwise app crashes when logging out
 
         if (currentUser != null)
         {
@@ -171,7 +173,7 @@ public class MainActivity extends AppCompatActivity
 
         if (item.getItemId() == R.id.main_logout_option)
         {
-            updateUserStatus("offline"); // not included in vid 56, but is important to update status
+            updateUserStatus("offline");
             mAuth.signOut();
             SendUserToLoginActivity();
         }
