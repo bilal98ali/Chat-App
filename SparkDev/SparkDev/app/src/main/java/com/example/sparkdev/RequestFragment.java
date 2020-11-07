@@ -237,11 +237,12 @@ public class RequestFragment extends Fragment {
                                                                              }
                                                                          });
 
-                                                                         builder.show();
+
 
                                                                      }
                                                                  }
                                                              });
+                                                             builder.show();
                                                          }
                                                      });
                                                  }
