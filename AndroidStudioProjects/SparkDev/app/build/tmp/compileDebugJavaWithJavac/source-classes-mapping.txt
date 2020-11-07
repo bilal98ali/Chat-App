@@ -1,0 +1,45 @@
+com/example/sparkdev/SettingsActivity.java
+ com.example.sparkdev.SettingsActivity
+ com.example.sparkdev.SettingsActivity$1
+ com.example.sparkdev.SettingsActivity$2
+ com.example.sparkdev.SettingsActivity$3
+com/example/sparkdev/GroupChatActivity.java
+ com.example.sparkdev.GroupChatActivity
+ com.example.sparkdev.GroupChatActivity$1
+ com.example.sparkdev.GroupChatActivity$2
+ com.example.sparkdev.GroupChatActivity$3
+com/example/sparkdev/ChatsFragment.java
+ com.example.sparkdev.ChatsFragment
+com/example/sparkdev/BuildConfig.java
+ com.example.sparkdev.BuildConfig
+com/example/sparkdev/MainActivity.java
+ com.example.sparkdev.MainActivity
+ com.example.sparkdev.MainActivity$1
+ com.example.sparkdev.MainActivity$2
+ com.example.sparkdev.MainActivity$3
+ com.example.sparkdev.MainActivity$4
+com/example/sparkdev/RegisterActivity.java
+ com.example.sparkdev.RegisterActivity
+ com.example.sparkdev.RegisterActivity$1
+ com.example.sparkdev.RegisterActivity$2
+ com.example.sparkdev.RegisterActivity$3
+com/example/sparkdev/GroupsFragment.java
+ com.example.sparkdev.GroupsFragment
+ com.example.sparkdev.GroupsFragment$1
+ com.example.sparkdev.GroupsFragment$2
+com/example/sparkdev/TabsAccessorAdapter.java
+ com.example.sparkdev.TabsAccessorAdapter
+com/example/sparkdev/ContactsFragment.java
+ com.example.sparkdev.ContactsFragment
+com/example/sparkdev/LoginActivity.java
+ com.example.sparkdev.LoginActivity
+ com.example.sparkdev.LoginActivity$1
+ com.example.sparkdev.LoginActivity$2
+ com.example.sparkdev.LoginActivity$3
+ com.example.sparkdev.LoginActivity$4
+com/example/sparkdev/PhoneLoginActivity.java
+ com.example.sparkdev.PhoneLoginActivity
+ com.example.sparkdev.PhoneLoginActivity$1
+ com.example.sparkdev.PhoneLoginActivity$2
+ com.example.sparkdev.PhoneLoginActivity$3
+ com.example.sparkdev.PhoneLoginActivity$4
