@@ -26,10 +26,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.HashMap;
-
 
 public class MainActivity extends AppCompatActivity
 {
@@ -41,7 +37,6 @@ public class MainActivity extends AppCompatActivity
     private FirebaseUser currentUser;
     private FirebaseAuth mAuth;
     private DatabaseReference RootRef;
-    private String currentUserID;
 
     public MainActivity() {
     }
@@ -71,6 +66,7 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(myToolbar);
 
 
+
     }
 
     protected void onStart(){
@@ -80,38 +76,10 @@ public class MainActivity extends AppCompatActivity
             SendUserToLoginActivity();
         }
         else{
-            updateUserStatus("online");
-
             VerifyUserExistance();
         }
     }
 
-    @Override
-    protected void onStop() {
-        super.onStop();
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        // ^ this line is not included in task 56 vid, but is necessary otherwise app crashes when logging out
-
-        if (currentUser != null)
-        {
-            updateUserStatus("offline");
-        }
-    }
-
-
-    @Override
-    protected void onDestroy()
-    {
-        super.onDestroy();
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        // ^ this line is not included in task 56 vid, but is necessary otherwise app crashes when logging out
-
-        if (currentUser != null)
-        {
-            updateUserStatus("offline");
-        }
-    }
-    
     private void VerifyUserExistance() {
         String currentUserID = mAuth.getCurrentUser().getUid();
 
@@ -171,7 +139,6 @@ public class MainActivity extends AppCompatActivity
 
         if (item.getItemId() == R.id.main_logout_option)
         {
-            updateUserStatus("offline"); // not included in vid 56, but is important to update status
             mAuth.signOut();
             SendUserToLoginActivity();
         }
@@ -262,28 +229,6 @@ public class MainActivity extends AppCompatActivity
       //  findFriendsIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(findFriendsIntent);
       //  finish();
-    }
-
-    private void updateUserStatus(String state){
-        String saveCurrentTime, saveCurrentDate;
-
-        Calendar calendar = Calendar.getInstance();
-
-        SimpleDateFormat currentDate = new SimpleDateFormat("MMM dd, yyyy");
-        saveCurrentDate = currentDate.format(calendar.getTime());
-
-        SimpleDateFormat currentTime = new SimpleDateFormat("hh:mm a");
-        saveCurrentTime = currentTime.format(calendar.getTime());
-
-        HashMap<String, Object> onlineStateMap = new HashMap<>();
-        onlineStateMap.put("time", saveCurrentTime);
-        onlineStateMap.put("date", saveCurrentDate);
-        onlineStateMap.put("state", state);
-
-        currentUserID = mAuth.getCurrentUser().getUid();
-
-        RootRef.child("Users").child(currentUserID).child("userState")
-                .updateChildren(onlineStateMap);
     }
 
 }
