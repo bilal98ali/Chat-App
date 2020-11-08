@@ -14,19 +14,21 @@
 
     </include>
 
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="75dp"
+
+        android:src="@drawable/profile_image"
+        app:civ_border_width="5dp"
+        app:civ_border_color="@color/colorPrimary"/>
+
     <!-- Needs changes to margins to align "Account Settings" top bar
      with the rest of profile -kev task43-->
 
-    <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/profile_image"
-            android:layout_width="250dp"
-            android:layout_height="250dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="90dp"
-            android:src="@drawable/profile_image"
-            app:civ_border_width="5dp"
-            app:civ_border_color="@color/colorPrimary"/>
     <EditText
         android:id="@+id/set_user_name"
         android:layout_width="match_parent"
