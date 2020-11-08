@@ -144,7 +144,7 @@ public class RequestFragment extends Fragment {
                                                      final String requestUserStatus = snapshot.child("status").getValue().toString();
 
                                                      holder.userName.setText(requestUserName);
-                                                     holder.userStatus.setText("wants to connect with you");
+                                                     holder.userStatus.setText(requestUserStatus + " wants to connect with you :)");
 
                                                      holder.itemView.setOnClickListener(new View.OnClickListener() {
                                                          @Override
@@ -237,11 +237,12 @@ public class RequestFragment extends Fragment {
                                                                              }
                                                                          });
 
-                                                                         builder.show();
+
 
                                                                      }
                                                                  }
                                                              });
+                                                             builder.show();
                                                          }
                                                      });
                                                  }
