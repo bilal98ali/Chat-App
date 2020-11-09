@@ -34,9 +34,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_log_in);
 
         mAuth = FirebaseAuth.getInstance();
-
-
-
+        
         InitializeFields();
 
         NeedNewAccountLink.setOnClickListener(new View.OnClickListener(){
