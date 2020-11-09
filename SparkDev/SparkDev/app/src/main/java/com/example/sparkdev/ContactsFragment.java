@@ -191,7 +191,7 @@ public class ContactsFragment extends Fragment {
             userName = itemView.findViewById(R.id.users_profile_name);
             userStatus = itemView.findViewById(R.id.user_status);
             profileImage = itemView.findViewById(R.id.users_profile_image);
-            onlineIcon = (ImageView) itemView.findViewById(R.id.users_profile_image);
+            onlineIcon = (ImageView) itemView.findViewById(R.id.users_online_status);
         }
     }
 

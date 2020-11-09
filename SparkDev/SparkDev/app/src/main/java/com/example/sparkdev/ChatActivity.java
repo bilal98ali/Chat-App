@@ -17,20 +17,14 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-<<<<<<< HEAD
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-=======
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
->>>>>>> 42175435d096678c5e48db19e5e8d15627b2e9c5
 import com.squareup.picasso.Picasso;
 
 import java.util.HashMap;
@@ -41,13 +35,6 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class ChatActivity extends AppCompatActivity {
 
     private String messageReceiverID, messageReceiverName, messageReceiverImage, messageSenderID;
-<<<<<<< HEAD
-
-    private FirebaseAuth mAuth;
-    private DatabaseReference RootRef;
-=======
->>>>>>> 42175435d096678c5e48db19e5e8d15627b2e9c5
-
     private TextView userName, userLastSeen;
     private CircleImageView userImage;
 
@@ -63,12 +50,6 @@ public class ChatActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
 
-<<<<<<< HEAD
-        mAuth = FirebaseAuth.getInstance();
-        messageSenderID = mAuth.getCurrentUser().getUid();
-        RootRef = FirebaseDatabase.getInstance().getReference();
-
-=======
 
         nAuth = FirebaseAuth.getInstance();
         messageSenderID = nAuth.getCurrentUser().getUid();
@@ -76,7 +57,6 @@ public class ChatActivity extends AppCompatActivity {
         RootRef = FirebaseDatabase.getInstance().getReference();
 
 
->>>>>>> 42175435d096678c5e48db19e5e8d15627b2e9c5
         messageReceiverID = getIntent().getExtras().get("visit_user_id").toString();
         messageReceiverName = getIntent().getExtras().get("visit_user_name").toString();
         messageReceiverImage = getIntent().getExtras().get("visit_image").toString();
@@ -118,7 +98,6 @@ public class ChatActivity extends AppCompatActivity {
         MessageInputText = (EditText) findViewById(R.id.input_message);
     }
 
-<<<<<<< HEAD
     private void DisplayLastSeen(){
         RootRef.child("Users").child(messageReceiverID)
                 .addValueEventListener(new ValueEventListener() {
@@ -152,9 +131,6 @@ public class ChatActivity extends AppCompatActivity {
                     }
                 });
     }
-}
-=======
-
 
     private void SendMessage() {
         String messageText = MessageInputText.getText().toString();
@@ -201,4 +177,3 @@ public class ChatActivity extends AppCompatActivity {
 
     }
 }
->>>>>>> 42175435d096678c5e48db19e5e8d15627b2e9c5
