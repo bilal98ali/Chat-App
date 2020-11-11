@@ -27,6 +27,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -42,8 +44,10 @@ public class ChatActivity extends AppCompatActivity {
     private FirebaseAuth nAuth;
     private DatabaseReference RootRef;
 
-    private ImageButton SendMessageButton;
+    private ImageButton SendMessageButton, SendFilesButton;
     private EditText MessageInputText;
+
+    private String saveCurrentTime, saveCurrentDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +79,8 @@ public class ChatActivity extends AppCompatActivity {
                 //on user click, SendMessage() -kev task48
             }
         });
+
+        DisplayLastSeen();
     }
 
     private void InitializeControllers() {
@@ -94,8 +100,17 @@ public class ChatActivity extends AppCompatActivity {
         userImage = (CircleImageView) findViewById(R.id.custom_profile_image);
 
         SendMessageButton = (ImageButton) findViewById(R.id.send_message_btn);
+        SendFilesButton = (ImageButton) findViewById(R.id.send_files_btn);
         //must be same "btn" from activity_chat.xml or app crashes -kev
         MessageInputText = (EditText) findViewById(R.id.input_message);
+
+        Calendar calendar = Calendar.getInstance();
+
+        SimpleDateFormat currentDate = new SimpleDateFormat("MMM dd, yyyy");
+        saveCurrentDate = currentDate.format(calendar.getTime());
+
+        SimpleDateFormat currentTime = new SimpleDateFormat("hh:mm a");
+        saveCurrentTime = currentTime.format(calendar.getTime());
     }
 
     private void DisplayLastSeen(){
@@ -155,6 +170,11 @@ public class ChatActivity extends AppCompatActivity {
             messageTextBody.put("message", messageText);
             messageTextBody.put("type", "text");
             messageTextBody.put("from", messageSenderID);
+            messageTextBody.put("to", messageReceiverID);
+            messageTextBody.put("messageID", messagePushID);
+            messageTextBody.put("time", saveCurrentTime);
+            messageTextBody.put("date", saveCurrentDate);
+
 
             Map messageBodyDetails = new HashMap();
             messageBodyDetails.put(messageSenderRef + "/" + messagePushID, messageTextBody);
