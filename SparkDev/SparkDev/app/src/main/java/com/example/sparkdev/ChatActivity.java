@@ -20,8 +20,11 @@ import androidx.appcompat.widget.Toolbar;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.HashMap;
@@ -32,7 +35,6 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class ChatActivity extends AppCompatActivity {
 
     private String messageReceiverID, messageReceiverName, messageReceiverImage, messageSenderID;
-
     private TextView userName, userLastSeen;
     private CircleImageView userImage;
 
@@ -96,7 +98,39 @@ public class ChatActivity extends AppCompatActivity {
         MessageInputText = (EditText) findViewById(R.id.input_message);
     }
 
+    private void DisplayLastSeen(){
+        RootRef.child("Users").child(messageReceiverID)
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot)
+                    {
+                        if (dataSnapshot.child("userState").hasChild("state"))
+                        {
+                            String state = dataSnapshot.child("userState").child("state").getValue().toString();
+                            String date = dataSnapshot.child("userState").child("date").getValue().toString();
+                            String time = dataSnapshot.child("userState").child("time").getValue().toString();
 
+                            if (state.equals("online"))
+                            {
+                                userLastSeen.setText("online");
+                            }
+                            else if (state.equals("offline"))
+                            {
+                                userLastSeen.setText("Last Seen: " + date + " " + time);
+                            }
+                        }
+                        else
+                        {
+                            userLastSeen.setText("offline");
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+    }
 
     private void SendMessage() {
         String messageText = MessageInputText.getText().toString();
