@@ -1,0 +1,71 @@
+Index: local.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>## This file must *NOT* be checked into Version Control Systems,\r\n# as it contains information specific to your local configuration.\r\n#\r\n# Location of the SDK. This is only used by Gradle.\r\n# For customization when using a Version Control System, please read the\r\n# header note.\r\n#Fri Oct 30 17:52:08 EDT 2020\r\nsdk.dir=C\\:\\\\Users\\\\kiaewen\\\\AppData\\\\Local\\\\Android\\\\Sdk\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- local.properties	(revision 577d574a74223d02520000b5a8408dc0dcd44131)
++++ local.properties	(date 1604966798593)
+@@ -4,5 +4,5 @@
+ # Location of the SDK. This is only used by Gradle.
+ # For customization when using a Version Control System, please read the
+ # header note.
+-#Fri Oct 30 17:52:08 EDT 2020
+-sdk.dir=C\:\\Users\\kiaewen\\AppData\\Local\\Android\\Sdk
++#Mon Nov 09 19:06:38 EST 2020
++sdk.dir=C\:\\Users\\Student\\AppData\\Local\\Android\\Sdk
+Index: .idea/libraries/Gradle__com_squareup_picasso_picasso_2_71828_aar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><component name=\"libraryTable\">\r\n  <library name=\"Gradle: com.squareup.picasso:picasso:2.71828@aar\">\r\n    <CLASSES>\r\n      <root url=\"file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9301404cc11b8f62bd75860748fc1e2f/jetified-picasso-2.71828/AndroidManifest.xml\" />\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9301404cc11b8f62bd75860748fc1e2f/jetified-picasso-2.71828/jars/classes.jar!/\" />\r\n      <root url=\"file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9301404cc11b8f62bd75860748fc1e2f/jetified-picasso-2.71828/res\" />\r\n    </CLASSES>\r\n    <JAVADOC>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.71828/2843564e6bac90b1e125104d7c842c87a96a8ee9/picasso-2.71828-javadoc.jar!/\" />\r\n    </JAVADOC>\r\n    <SOURCES>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.71828/41874e20a4d17fd4ad2052ac217073e14d00c910/picasso-2.71828-sources.jar!/\" />\r\n    </SOURCES>\r\n  </library>\r\n</component>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/libraries/Gradle__com_squareup_picasso_picasso_2_71828_aar.xml	(revision 577d574a74223d02520000b5a8408dc0dcd44131)
++++ .idea/libraries/Gradle__com_squareup_picasso_picasso_2_71828_aar.xml	(date 1604966969482)
+@@ -4,6 +4,9 @@
+       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9301404cc11b8f62bd75860748fc1e2f/jetified-picasso-2.71828/AndroidManifest.xml" />
+       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9301404cc11b8f62bd75860748fc1e2f/jetified-picasso-2.71828/jars/classes.jar!/" />
+       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9301404cc11b8f62bd75860748fc1e2f/jetified-picasso-2.71828/res" />
++      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ec224611b9cfa6f465864f9056041137/jetified-picasso-2.71828/jars/classes.jar!/" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ec224611b9cfa6f465864f9056041137/jetified-picasso-2.71828/AndroidManifest.xml" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ec224611b9cfa6f465864f9056041137/jetified-picasso-2.71828/res" />
+     </CLASSES>
+     <JAVADOC>
+       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.71828/2843564e6bac90b1e125104d7c842c87a96a8ee9/picasso-2.71828-javadoc.jar!/" />
+Index: .idea/compiler.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/compiler.xml	(date 1604966807193)
++++ .idea/compiler.xml	(date 1604966807193)
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="CompilerConfiguration">
++    <bytecodeTargetLevel>
++      <module name="SparkDev.app" target="1.8" />
++    </bytecodeTargetLevel>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ProjectModuleManager\">\r\n    <modules>\r\n      <module fileurl=\"file://$PROJECT_DIR$/.idea/modules/752215958/AndroidStudioProjects-SparkDev-Mobile-Dev-SparkDev-SparkDev.iml\" filepath=\"$PROJECT_DIR$/.idea/modules/752215958/AndroidStudioProjects-SparkDev-Mobile-Dev-SparkDev-SparkDev.iml\" group=\"SparkDev\" />\r\n      <module fileurl=\"file://$PROJECT_DIR$/.idea/modules/-102899655/Desktop-SparkDev-Mobile-Dev-SparkDev-SparkDev.iml\" filepath=\"$PROJECT_DIR$/.idea/modules/-102899655/Desktop-SparkDev-Mobile-Dev-SparkDev-SparkDev.iml\" group=\"SparkDev\" />\r\n      <module fileurl=\"file://$PROJECT_DIR$/.idea/modules/-102899655/Desktop-SparkDev-Mobile-Dev-SparkDev-SparkDev~1.iml\" filepath=\"$PROJECT_DIR$/.idea/modules/-102899655/Desktop-SparkDev-Mobile-Dev-SparkDev-SparkDev~1.iml\" group=\"SparkDev\" />\r\n      <module fileurl=\"file://$PROJECT_DIR$/.idea/modules/1912936151/Documents-SparkDev-Mobile-Dev-SparkDev-SparkDev.iml\" filepath=\"$PROJECT_DIR$/.idea/modules/1912936151/Documents-SparkDev-Mobile-Dev-SparkDev-SparkDev.iml\" group=\"SparkDev\" />\r\n      <module fileurl=\"file://$PROJECT_DIR$/.idea/modules/1936802508/Fall 2020-SparkDev-Mobile-Dev-SparkDev-SparkDev.iml\" filepath=\"$PROJECT_DIR$/.idea/modules/1936802508/Fall 2020-SparkDev-Mobile-Dev-SparkDev-SparkDev.iml\" group=\"SparkDev\" />\r\n      <module fileurl=\"file://$PROJECT_DIR$/.idea/modules/681074924/SparkDev.iml\" filepath=\"$PROJECT_DIR$/.idea/modules/681074924/SparkDev.iml\" group=\"SparkDev\" />\r\n      <module fileurl=\"file://$PROJECT_DIR$/.idea/modules/-1508437942/SparkDev-Mobile-Dev-SparkDev-SparkDev.iml\" filepath=\"$PROJECT_DIR$/.idea/modules/-1508437942/SparkDev-Mobile-Dev-SparkDev-SparkDev.iml\" group=\"SparkDev\" />\r\n      <module fileurl=\"file://$PROJECT_DIR$/.idea/modules/SparkDev-Mobile-Dev-SparkDev-SparkDev-app.iml\" filepath=\"$PROJECT_DIR$/.idea/modules/SparkDev-Mobile-Dev-SparkDev-SparkDev-app.iml\" group=\"SparkDev/app\" />\r\n      <module fileurl=\"file://$PROJECT_DIR$/.idea/modules/SparkDev-Mobile-Dev-SparkDev-SparkDev-app~1.iml\" filepath=\"$PROJECT_DIR$/.idea/modules/SparkDev-Mobile-Dev-SparkDev-SparkDev-app~1.iml\" group=\"SparkDev/app\" />\r\n      <module fileurl=\"file://$PROJECT_DIR$/.idea/modules/SparkDev-Mobile-Dev-SparkDev-SparkDev-app~2.iml\" filepath=\"$PROJECT_DIR$/.idea/modules/SparkDev-Mobile-Dev-SparkDev-SparkDev-app~2.iml\" group=\"SparkDev/app\" />\r\n      <module fileurl=\"file://$PROJECT_DIR$/.idea/modules/-1446744287/SparkDev-SparkDev.iml\" filepath=\"$PROJECT_DIR$/.idea/modules/-1446744287/SparkDev-SparkDev.iml\" group=\"SparkDev\" />\r\n      <module fileurl=\"file://$PROJECT_DIR$/.idea/modules/SparkDev-SparkDev-app.iml\" filepath=\"$PROJECT_DIR$/.idea/modules/SparkDev-SparkDev-app.iml\" group=\"SparkDev/app\" />\r\n      <module fileurl=\"file://$PROJECT_DIR$/.idea/modules/SparkDev-app.iml\" filepath=\"$PROJECT_DIR$/.idea/modules/SparkDev-app.iml\" group=\"SparkDev/app\" />\r\n      <module fileurl=\"file://$PROJECT_DIR$/.idea/modules/681074924/Student-SparkDev-Mobile-Dev-SparkDev-SparkDev.iml\" filepath=\"$PROJECT_DIR$/.idea/modules/681074924/Student-SparkDev-Mobile-Dev-SparkDev-SparkDev.iml\" group=\"SparkDev\" />\r\n      <module fileurl=\"file://$PROJECT_DIR$/.idea/modules/229857185/android_Spark-SparkDev-Mobile-Dev-SparkDev-SparkDev.iml\" filepath=\"$PROJECT_DIR$/.idea/modules/229857185/android_Spark-SparkDev-Mobile-Dev-SparkDev-SparkDev.iml\" group=\"SparkDev\" />\r\n      <module fileurl=\"file://$PROJECT_DIR$/.idea/modules/app.iml\" filepath=\"$PROJECT_DIR$/.idea/modules/app.iml\" group=\"SparkDev/app\" />\r\n    </modules>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/modules.xml	(revision 577d574a74223d02520000b5a8408dc0dcd44131)
++++ .idea/modules.xml	(date 1604966969282)
+@@ -15,6 +15,8 @@
+       <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1446744287/SparkDev-SparkDev.iml" filepath="$PROJECT_DIR$/.idea/modules/-1446744287/SparkDev-SparkDev.iml" group="SparkDev" />
+       <module fileurl="file://$PROJECT_DIR$/.idea/modules/SparkDev-SparkDev-app.iml" filepath="$PROJECT_DIR$/.idea/modules/SparkDev-SparkDev-app.iml" group="SparkDev/app" />
+       <module fileurl="file://$PROJECT_DIR$/.idea/modules/SparkDev-app.iml" filepath="$PROJECT_DIR$/.idea/modules/SparkDev-app.iml" group="SparkDev/app" />
++      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-102899655/SparkDev.SparkDev.iml" filepath="$PROJECT_DIR$/.idea/modules/-102899655/SparkDev.SparkDev.iml" />
++      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SparkDev.app.iml" filepath="$PROJECT_DIR$/.idea/modules/SparkDev.app.iml" />
+       <module fileurl="file://$PROJECT_DIR$/.idea/modules/681074924/Student-SparkDev-Mobile-Dev-SparkDev-SparkDev.iml" filepath="$PROJECT_DIR$/.idea/modules/681074924/Student-SparkDev-Mobile-Dev-SparkDev-SparkDev.iml" group="SparkDev" />
+       <module fileurl="file://$PROJECT_DIR$/.idea/modules/229857185/android_Spark-SparkDev-Mobile-Dev-SparkDev-SparkDev.iml" filepath="$PROJECT_DIR$/.idea/modules/229857185/android_Spark-SparkDev-Mobile-Dev-SparkDev-SparkDev.iml" group="SparkDev" />
+       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app.iml" group="SparkDev/app" />
