@@ -13,21 +13,26 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -35,6 +40,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class ChatActivity extends AppCompatActivity {
 
     private String messageReceiverID, messageReceiverName, messageReceiverImage, messageSenderID;
+
     private TextView userName, userLastSeen;
     private CircleImageView userImage;
 
@@ -44,6 +50,11 @@ public class ChatActivity extends AppCompatActivity {
 
     private ImageButton SendMessageButton;
     private EditText MessageInputText;
+
+    private final List<Messages> messagesList = new ArrayList<>();
+    private LinearLayoutManager linearLayoutManager;
+    private MessageAdapter messageAdapter;
+    private RecyclerView userMessagesList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,37 +107,47 @@ public class ChatActivity extends AppCompatActivity {
         SendMessageButton = (ImageButton) findViewById(R.id.send_message_btn);
         //must be same "btn" from activity_chat.xml or app crashes -kev
         MessageInputText = (EditText) findViewById(R.id.input_message);
+
+        messageAdapter = new MessageAdapter(messagesList);
+        userMessagesList = (RecyclerView) findViewById(R.id.private_messages_list_of_users);
+        linearLayoutManager = new LinearLayoutManager(this);
+        userMessagesList.setLayoutManager(linearLayoutManager);
+        userMessagesList.setAdapter(messageAdapter);
     }
 
-    private void DisplayLastSeen(){
-        RootRef.child("Users").child(messageReceiverID)
-                .addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot)
-                    {
-                        if (dataSnapshot.child("userState").hasChild("state"))
-                        {
-                            String state = dataSnapshot.child("userState").child("state").getValue().toString();
-                            String date = dataSnapshot.child("userState").child("date").getValue().toString();
-                            String time = dataSnapshot.child("userState").child("time").getValue().toString();
+    @Override
+    protected void onStart() {
+        super.onStart();
 
-                            if (state.equals("online"))
-                            {
-                                userLastSeen.setText("online");
-                            }
-                            else if (state.equals("offline"))
-                            {
-                                userLastSeen.setText("Last Seen: " + date + " " + time);
-                            }
-                        }
-                        else
-                        {
-                            userLastSeen.setText("offline");
-                        }
+        RootRef.child("Messages").child(messageSenderID).child(messageReceiverID)
+                .addChildEventListener(new ChildEventListener() {
+                    @Override
+                    public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                        Messages messages = snapshot.getValue(Messages.class);
+
+                        messagesList.add(messages);
+
+                        messageAdapter.notifyDataSetChanged();
                     }
 
                     @Override
-                    public void onCancelled(DatabaseError databaseError) {
+                    public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                    }
+
+                    @Override
+                    public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+                    }
+
+                    @Override
+                    public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
 
                     }
                 });
