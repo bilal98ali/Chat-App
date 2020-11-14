@@ -22,7 +22,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class LoginActivity extends AppCompatActivity {
+public class InstaLoginActivity extends AppCompatActivity {
 
     EditText email, password;
     Button login;
@@ -33,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_login_insta);
 
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
@@ -45,14 +45,14 @@ public class LoginActivity extends AppCompatActivity {
         txt_signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
+                startActivity(new Intent(InstaLoginActivity.this, InstaRegisterActivity.class));
             }
         });
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final ProgressDialog pd = new ProgressDialog(LoginActivity.this);
+                final ProgressDialog pd = new ProgressDialog(InstaLoginActivity.this);
                 pd.setMessage("Please wait...");
                 pd.show();
 
@@ -60,11 +60,11 @@ public class LoginActivity extends AppCompatActivity {
                 String str_password = password.getText().toString();
 
                 if (TextUtils.isEmpty(str_email) || TextUtils.isEmpty(str_password)){
-                    Toast.makeText(LoginActivity.this, "All fields are required!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(InstaLoginActivity.this, "All fields are required!", Toast.LENGTH_SHORT).show();
                 } else {
 
                     auth.signInWithEmailAndPassword(str_email, str_password)
-                            .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
+                            .addOnCompleteListener(InstaLoginActivity.this, new OnCompleteListener<AuthResult>() {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()) {
@@ -76,7 +76,7 @@ public class LoginActivity extends AppCompatActivity {
                                             @Override
                                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                                 pd.dismiss();
-                                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                                Intent intent = new Intent(InstaLoginActivity.this, InstaMainActivity.class);
                                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                                 startActivity(intent);
                                                 finish();
@@ -89,7 +89,7 @@ public class LoginActivity extends AppCompatActivity {
                                         });
                                     } else {
                                         pd.dismiss();
-                                        Toast.makeText(LoginActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(InstaLoginActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             });

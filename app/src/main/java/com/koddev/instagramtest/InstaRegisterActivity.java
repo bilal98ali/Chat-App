@@ -22,7 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 
-public class RegisterActivity extends AppCompatActivity {
+public class InstaRegisterActivity extends AppCompatActivity {
 
     EditText username, fullname, email, password;
     Button register;
@@ -35,7 +35,7 @@ public class RegisterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
+        setContentView(R.layout.activity_register_insta);
 
         username = findViewById(R.id.username);
         email = findViewById(R.id.email);
@@ -49,14 +49,14 @@ public class RegisterActivity extends AppCompatActivity {
         txt_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+                startActivity(new Intent(InstaRegisterActivity.this, InstaLoginActivity.class));
             }
         });
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                pd = new ProgressDialog(RegisterActivity.this);
+                pd = new ProgressDialog(InstaRegisterActivity.this);
                 pd.setMessage("Please wait...");
                 pd.show();
 
@@ -66,9 +66,9 @@ public class RegisterActivity extends AppCompatActivity {
                 String str_password = password.getText().toString();
 
                 if (TextUtils.isEmpty(str_username) || TextUtils.isEmpty(str_fullname) || TextUtils.isEmpty(str_email) || TextUtils.isEmpty(str_password)){
-                    Toast.makeText(RegisterActivity.this, "All fields are required!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(InstaRegisterActivity.this, "All fields are required!", Toast.LENGTH_SHORT).show();
                 } else if(str_password.length() < 6){
-                    Toast.makeText(RegisterActivity.this, "Password must have 6 characters!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(InstaRegisterActivity.this, "Password must have 6 characters!", Toast.LENGTH_SHORT).show();
                 } else {
                     register(str_username, str_fullname, str_email, str_password);
                 }
@@ -78,7 +78,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     public void register(final String username, final String fullname, String email, String password){
         auth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
+                .addOnCompleteListener(InstaRegisterActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
@@ -98,7 +98,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()){
                                         pd.dismiss();
-                                        Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                                        Intent intent = new Intent(InstaRegisterActivity.this, InstaMainActivity.class);
                                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                         startActivity(intent);
                                     }
@@ -106,7 +106,7 @@ public class RegisterActivity extends AppCompatActivity {
                             });
                         } else {
                             pd.dismiss();
-                            Toast.makeText(RegisterActivity.this, "You can't register with this email or password", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(InstaRegisterActivity.this, "You can't register with this email or password", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

@@ -7,30 +7,12 @@
     android:orientation="vertical"
     android:padding="10dp"
     android:gravity="center"
-    tools:context=".RegisterActivity">
+    tools:context=".InstaLoginActivity">
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:src="@drawable/logo"/>
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/edittext_background"
-        android:hint="Username"
-        android:id="@+id/username"
-        android:layout_marginTop="15dp"
-        android:padding="10dp"/>
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/edittext_background"
-        android:hint="Full name"
-        android:id="@+id/fullname"
-        android:layout_marginTop="15dp"
-        android:padding="10dp"/>
 
     <EditText
         android:layout_width="match_parent"
@@ -56,16 +38,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:text="Register"
-        android:id="@+id/register"
+        android:text="Log in"
+        android:id="@+id/login"
         android:textColor="@color/colorPrimary"
         android:background="@drawable/button_background"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Already have an sccount? Log in"
-        android:id="@+id/txt_login"
+        android:text="Don't have an sccount? Sign up"
+        android:id="@+id/txt_signup"
         android:layout_marginTop="10dp"/>
 
 </LinearLayout>

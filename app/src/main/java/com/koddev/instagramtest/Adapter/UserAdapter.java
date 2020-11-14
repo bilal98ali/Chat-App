@@ -21,7 +21,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.koddev.instagramtest.Fragments.ProfileFragment;
-import com.koddev.instagramtest.MainActivity;
+import com.koddev.instagramtest.InstaMainActivity;
 import com.koddev.instagramtest.Model.User;
 import com.koddev.instagramtest.R;
 
@@ -82,7 +82,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ImageViewHolde
                     ((FragmentActivity) mContext).getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                             new ProfileFragment()).commit();
                 } else {
-                    Intent intent = new Intent(mContext, MainActivity.class);
+                    Intent intent = new Intent(mContext, InstaMainActivity.class);
                     intent.putExtra("publisherid", user.getId());
                     mContext.startActivity(intent);
                 }

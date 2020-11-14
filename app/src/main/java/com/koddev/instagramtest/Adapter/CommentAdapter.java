@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,7 +23,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.koddev.instagramtest.MainActivity;
+import com.koddev.instagramtest.InstaMainActivity;
 import com.koddev.instagramtest.Model.Comment;
 import com.koddev.instagramtest.Model.User;
 import com.koddev.instagramtest.R;
@@ -65,7 +64,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ImageVie
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(mContext, MainActivity.class);
+                Intent intent = new Intent(mContext, InstaMainActivity.class);
                 intent.putExtra("publisherid", comment.getPublisher());
                 mContext.startActivity(intent);
             }
@@ -74,7 +73,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ImageVie
         holder.image_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(mContext, MainActivity.class);
+                Intent intent = new Intent(mContext, InstaMainActivity.class);
                 intent.putExtra("publisherid", comment.getPublisher());
                 mContext.startActivity(intent);
             }

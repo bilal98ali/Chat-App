@@ -127,7 +127,7 @@ public class AddStoryActivity extends AppCompatActivity {
 
         } else {
             Toast.makeText(this, "Something gone wrong!", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(AddStoryActivity.this, MainActivity.class));
+            startActivity(new Intent(AddStoryActivity.this, InstaMainActivity.class));
             finish();
         }
     }

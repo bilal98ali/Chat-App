@@ -24,7 +24,7 @@ public class StartActivity extends AppCompatActivity {
 
         //check if user is null
         if (firebaseUser != null){
-            Intent intent = new Intent(StartActivity.this, MainActivity.class);
+            Intent intent = new Intent(StartActivity.this, InstaMainActivity.class);
             startActivity(intent);
             finish();
         }
@@ -41,14 +41,14 @@ public class StartActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(StartActivity.this, LoginActivity.class));
+                startActivity(new Intent(StartActivity.this, InstaLoginActivity.class));
             }
         });
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(StartActivity.this, RegisterActivity.class));
+                startActivity(new Intent(StartActivity.this, InstaRegisterActivity.class));
             }
         });
 

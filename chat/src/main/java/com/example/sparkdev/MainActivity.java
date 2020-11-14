@@ -25,6 +25,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.koddev.instagramtest.InstaMainActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -258,7 +259,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void SendUserToFindFriendsActivity() {
-        Intent findFriendsIntent = new Intent(MainActivity.this, FindFriendsActivity.class);
+        Intent findFriendsIntent = new Intent(MainActivity.this, InstaMainActivity.class);
       //  findFriendsIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(findFriendsIntent);
       //  finish();

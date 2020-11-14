@@ -55,7 +55,7 @@ public class PostActivity extends AppCompatActivity {
         close.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(PostActivity.this, MainActivity.class));
+                startActivity(new Intent(PostActivity.this, InstaMainActivity.class));
                 finish();
             }
         });
@@ -117,7 +117,7 @@ public class PostActivity extends AppCompatActivity {
 
                         pd.dismiss();
 
-                        startActivity(new Intent(PostActivity.this, MainActivity.class));
+                        startActivity(new Intent(PostActivity.this, InstaMainActivity.class));
                         finish();
 
                     } else {
@@ -148,7 +148,7 @@ public class PostActivity extends AppCompatActivity {
             image_added.setImageURI(mImageUri);
         } else {
             Toast.makeText(this, "Something gone wrong!", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(PostActivity.this, MainActivity.class));
+            startActivity(new Intent(PostActivity.this, InstaMainActivity.class));
             finish();
         }
     }

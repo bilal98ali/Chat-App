@@ -197,38 +197,42 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ImageViewHolde
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem menuItem) {
-                        switch (menuItem.getItemId()){
-                            case R.id.edit:
-                                editPost(post.getPostid());
-                                return true;
-                            case R.id.delete:
-                                final String id = post.getPostid();
-                                FirebaseDatabase.getInstance().getReference("Posts")
-                                        .child(post.getPostid()).removeValue()
-                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                            @Override
-                                            public void onComplete(@NonNull Task<Void> task) {
-                                                if (task.isSuccessful()){
-                                                    deleteNotifications(id, firebaseUser.getUid());
-                                                }
+                        if(menuItem.getItemId() == R.id.edit) {
+                            editPost(post.getPostid());
+                            return true;
+                        }
+                        else if(menuItem.getItemId() == R.id.delete) {
+                            final String id = post.getPostid();
+                            FirebaseDatabase.getInstance().getReference("Posts")
+                                    .child(post.getPostid()).removeValue()
+                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if (task.isSuccessful()) {
+                                                deleteNotifications(id, firebaseUser.getUid());
                                             }
-                                        });
-                                return true;
-                            case R.id.report:
+                                        }
+                                    });
+
+                            return true;
+                        }
+                            else if(menuItem.getItemId() == R.id.report) {
                                 Toast.makeText(mContext, "Reported clicked!", Toast.LENGTH_SHORT).show();
                                 return true;
-                            default:
+                            }
+                            else
                                 return false;
                         }
+                    });
+                    popupMenu.inflate(R.menu.post_menu);
+                    if (!post.getPublisher().equals(firebaseUser.getUid())){
+                        popupMenu.getMenu().findItem(R.id.edit).setVisible(false);
+                        popupMenu.getMenu().findItem(R.id.delete).setVisible(false);
                     }
-                });
-                popupMenu.inflate(R.menu.post_menu);
-                if (!post.getPublisher().equals(firebaseUser.getUid())){
-                    popupMenu.getMenu().findItem(R.id.edit).setVisible(false);
-                    popupMenu.getMenu().findItem(R.id.delete).setVisible(false);
+                    popupMenu.show();
                 }
-                popupMenu.show();
-            }
+
+
         });
     }
 
