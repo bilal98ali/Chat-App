@@ -1,6 +1,8 @@
 package com.example.sparkdev;
 
+import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -71,7 +73,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
 
 
     @Override
-    public void onBindViewHolder(@NonNull final MessageViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final MessageViewHolder holder, final int position) {
     //public void onBindViewHolder(@NonNull final MessageViewHolder messageViewHolder...
     //ia  hia line. I don't know if final is necessary or not. -kev50
         String messageSenderId = nAuth.getCurrentUser().getUid();
@@ -133,8 +135,8 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
         else if(fromMessageType.equals("image")){
             if(fromUserID.equals(messageSenderId)){
                     holder.messageSenderPicture.setVisibility(View.VISIBLE);
-                  //  holder.senderMessageText.setVisibility(View.INVISIBLE);
-                   //  holder.receiverMessageText.setVisibility(View.INVISIBLE);
+                    holder.senderMessageText.setVisibility(View.INVISIBLE);
+                     holder.receiverMessageText.setVisibility(View.INVISIBLE);
 
 
                     Picasso.get().load(messages.getMessage()).into(holder.messageSenderPicture);
@@ -146,10 +148,43 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
 
                 holder.receiverProfileImage.setVisibility(View.VISIBLE);
                holder.messageReceiverPicture.setVisibility(View.VISIBLE);
-              // holder.senderMessageText.setVisibility(View.INVISIBLE);
-              //  holder.receiverMessageText.setVisibility(View.INVISIBLE);
+               holder.senderMessageText.setVisibility(View.INVISIBLE);
+                holder.receiverMessageText.setVisibility(View.INVISIBLE);
 
                 Picasso.get().load(messages.getMessage()).into(holder.messageReceiverPicture);
+            }
+        }
+        else{
+            if(fromUserID.equals(messageSenderId)){
+
+                holder.messageReceiverPicture.setVisibility(View.VISIBLE);
+                holder.messageSenderPicture.setBackgroundResource(R.drawable.send_files);
+
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        Intent intent = new Intent (Intent.ACTION_VIEW, Uri.parse(userMessagesList.get(position).getMessage()));
+                        holder.itemView.getContext().startActivity(intent);
+                    }
+                });
+
+            }
+            else{
+
+                holder.receiverProfileImage.setVisibility(View.VISIBLE);
+                holder.messageReceiverPicture.setVisibility(View.VISIBLE);
+
+                holder.messageReceiverPicture.setBackgroundResource(R.drawable.send_files);
+
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        Intent intent = new Intent (Intent.ACTION_VIEW, Uri.parse(userMessagesList.get(position).getMessage()));
+                        holder.itemView.getContext().startActivity(intent);
+                    }
+                });
             }
         }
 
