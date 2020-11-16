@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -37,6 +38,8 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
 
         public TextView senderMessageText, receiverMessageText;
         public CircleImageView receiverProfileImage;
+        public ImageView messageSenderPicture, messageReceiverPicture;
+
 
 
         public MessageViewHolder(@NonNull View itemView) {
@@ -45,6 +48,8 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
             senderMessageText = (TextView) itemView.findViewById(R.id.sender_message_text);
             receiverMessageText = (TextView) itemView.findViewById(R.id.receiver_message_text);
             receiverProfileImage = (CircleImageView) itemView.findViewById(R.id.message_profile_image);
+            messageReceiverPicture = itemView.findViewById(R.id.message_receiver_image_view);
+            messageSenderPicture = itemView.findViewById(R.id.message_sender_image_view);
         }
     }
 
@@ -100,9 +105,11 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
         {
             holder.receiverMessageText.setVisibility(View.INVISIBLE);
             holder.receiverProfileImage.setVisibility(View.INVISIBLE);
+            holder.senderMessageText.setVisibility(View.INVISIBLE);
 
             if (fromUserID.equals(messageSenderId))
             {
+                holder.senderMessageText.setVisibility(View.VISIBLE);
                 holder.senderMessageText.setBackgroundResource(R.drawable.sender_messages_layout);
                 holder.senderMessageText.setTextColor(Color.BLACK);
                 //Color is from android.graphics, but there is an option com.google.type I did
@@ -112,7 +119,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
             }
             else
             {
-                holder.senderMessageText.setVisibility(View.INVISIBLE);
+              //  holder.senderMessageText.setVisibility(View.INVISIBLE);
 
                 holder.receiverProfileImage.setVisibility(View.VISIBLE);
                 holder.receiverMessageText.setVisibility(View.VISIBLE);
@@ -120,6 +127,29 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
                 holder.receiverMessageText.setBackgroundResource(R.drawable.receiver_messages_layout);
                 holder.receiverMessageText.setTextColor(Color.BLACK);
                 holder.receiverMessageText.setText(messages.getMessage());
+            }
+        }
+
+        else if(fromMessageType.equals("image")){
+            if(fromUserID.equals(messageSenderId)){
+                    holder.messageSenderPicture.setVisibility(View.VISIBLE);
+                  //  holder.senderMessageText.setVisibility(View.INVISIBLE);
+                   //  holder.receiverMessageText.setVisibility(View.INVISIBLE);
+
+
+                    Picasso.get().load(messages.getMessage()).into(holder.messageSenderPicture);
+
+
+
+            }
+            else{
+
+                holder.receiverProfileImage.setVisibility(View.VISIBLE);
+               holder.messageReceiverPicture.setVisibility(View.VISIBLE);
+              // holder.senderMessageText.setVisibility(View.INVISIBLE);
+              //  holder.receiverMessageText.setVisibility(View.INVISIBLE);
+
+                Picasso.get().load(messages.getMessage()).into(holder.messageReceiverPicture);
             }
         }
 

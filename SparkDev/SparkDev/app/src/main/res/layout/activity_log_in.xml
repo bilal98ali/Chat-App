@@ -27,7 +27,7 @@
                 android:id="@+id/login_image"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
-                android:src="@drawable/login_photo"
+                android:src="@drawable/panther_logo_new"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:scaleType="fitCenter"
