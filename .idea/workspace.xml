@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="389e34c2-c73c-44b5-af3f-faa946a0de15" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/SparkDev/SparkDev/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SparkDev/SparkDev/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/SparkDev/SparkDev/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SparkDev/SparkDev/app/src/main/java/com/example/sparkdev/RequestFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/SparkDev/SparkDev/app/src/main/java/com/example/sparkdev/RequestFragment.java" afterDir="false" />
-    </list>
+    <list default="true" id="389e34c2-c73c-44b5-af3f-faa946a0de15" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,17 +27,9 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IgnoredFileRootStore">
-    <option name="generatedRoots">
-      <set>
-        <option value="D:\AndroidStudioProjects\SparkDev-Mobile-Dev\.idea" />
-      </set>
-    </option>
-  </component>
   <component name="ProjectId" id="1iNRUuWomT6d9smcn7dwxCtBGwq" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -74,10 +61,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1601746149304">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1605682808048">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1601746149304" />
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1605682808048" />
     <state x="460" y="141" key="git4idea.branch.GitSmartOperationDialog" timestamp="1604241716234">
       <screen x="0" y="23" width="1440" height="816" />
     </state>
