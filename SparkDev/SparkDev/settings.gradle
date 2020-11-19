@@ -1,2 +1,3 @@
+include ':insta'
 include ':app'
 rootProject.name = "SparkDev"
