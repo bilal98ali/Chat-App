@@ -1,0 +1,244 @@
+Index: app/src/main/java/com/example/sparkdev/ChatActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.sparkdev;\r\n\r\n//import android.support.v7.app.AppCompatActivity;\r\n\r\nimport android.app.AlertDialog;\r\nimport android.app.ProgressDialog;\r\nimport android.content.Context;\r\nimport android.content.DialogInterface;\r\nimport android.content.Intent;\r\nimport android.net.Uri;\r\nimport android.os.Bundle;\r\nimport android.text.TextUtils;\r\nimport android.view.LayoutInflater;\r\nimport android.view.View;\r\nimport android.widget.EditText;\r\nimport android.widget.ImageButton;\r\nimport android.widget.ProgressBar;\r\nimport android.widget.TextView;\r\nimport android.widget.Toast;\r\n\r\nimport androidx.annotation.NonNull;\r\nimport androidx.annotation.Nullable;\r\nimport androidx.appcompat.app.ActionBar;\r\nimport androidx.appcompat.app.AppCompatActivity;\r\nimport androidx.appcompat.widget.Toolbar;\r\nimport androidx.recyclerview.widget.LinearLayoutManager;\r\nimport androidx.recyclerview.widget.RecyclerView;\r\n\r\nimport com.google.android.gms.tasks.Continuation;\r\nimport com.google.android.gms.tasks.OnCompleteListener;\r\nimport com.google.android.gms.tasks.Task;\r\nimport com.google.firebase.auth.FirebaseAuth;\r\nimport com.google.firebase.database.ChildEventListener;\r\nimport com.google.firebase.database.DataSnapshot;\r\nimport com.google.firebase.database.DatabaseError;\r\nimport com.google.firebase.database.DatabaseReference;\r\nimport com.google.firebase.database.FirebaseDatabase;\r\nimport com.google.firebase.storage.FirebaseStorage;\r\nimport com.google.firebase.storage.StorageReference;\r\nimport com.google.firebase.storage.StorageTask;\r\nimport com.squareup.picasso.Picasso;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.HashMap;\r\nimport java.util.List;\r\nimport java.util.Map;\r\n\r\nimport de.hdodenhof.circleimageview.CircleImageView;\r\n\r\npublic class ChatActivity extends AppCompatActivity {\r\n\r\n    private String messageReceiverID, messageReceiverName, messageReceiverImage, messageSenderID;\r\n\r\n    private TextView userName, userLastSeen;\r\n    private CircleImageView userImage;\r\n\r\n    private Toolbar ChatToolBar;\r\n    private FirebaseAuth nAuth;\r\n    private DatabaseReference RootRef;\r\n\r\n    private ImageButton SendMessageButton, SendFilesButton;\r\n    private EditText MessageInputText;\r\n\r\n    private final List<Messages> messagesList = new ArrayList<>();\r\n    private LinearLayoutManager linearLayoutManager;\r\n    private MessageAdapter messageAdapter;\r\n    private RecyclerView userMessagesList;\r\n\r\n    private String saveCurrentTime, saveCurrentDate;\r\n    private String checker = \"\", myUrl = \"\";\r\n    private StorageTask uploadTask;\r\n    private Uri fileUri;\r\n\r\n    private ProgressDialog loadingBar;\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_chat);\r\n\r\n\r\n        nAuth = FirebaseAuth.getInstance();\r\n        messageSenderID = nAuth.getCurrentUser().getUid();\r\n        //kev task43\r\n        RootRef = FirebaseDatabase.getInstance().getReference();\r\n\r\n\r\n        messageReceiverID = getIntent().getExtras().get(\"visit_user_id\").toString();\r\n        messageReceiverName = getIntent().getExtras().get(\"visit_user_name\").toString();\r\n        messageReceiverImage = getIntent().getExtras().get(\"visit_image\").toString();\r\n\r\n\r\n        InitializeControllers();\r\n\r\n        userName.setText(messageReceiverName);\r\n        Picasso.get().load(messageReceiverImage).placeholder(R.drawable.profile_image).into(userImage);\r\n\r\n\r\n        SendMessageButton.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View v) {\r\n                SendMessage();\r\n                //on user click, SendMessage() -kev task48\r\n            }\r\n        });\r\n\r\n        SendFilesButton.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View v) {\r\n                CharSequence options[] = new CharSequence[]{\r\n                        \"Images\",\r\n                        \"PDF Files\",\r\n                        \"MS Word Files\"\r\n\r\n                };\r\n\r\n                AlertDialog.Builder builder = new AlertDialog.Builder(ChatActivity.this);\r\n                builder.setTitle(\"Select the File\");\r\n\r\n                builder.setItems(options, new DialogInterface.OnClickListener() {\r\n                    @Override\r\n                    public void onClick(DialogInterface dialog, int i) {\r\n                        if(i == 0){\r\n                            checker = \"image\";\r\n\r\n                            Intent intent = new Intent();\r\n                            intent.setAction(Intent.ACTION_GET_CONTENT);\r\n                            intent.setType(\"image/*\");\r\n                            startActivityForResult(intent.createChooser(intent,\"Select Image\"),438);\r\n                        }\r\n                        if(i == 1){\r\n                            checker = \"pdf\";\r\n\r\n                            Intent intent = new Intent();\r\n                            intent.setAction(Intent.ACTION_GET_CONTENT);\r\n                            intent.setType(\"application/pdf\");\r\n                            startActivityForResult(intent.createChooser(intent,\"Select PDF File\"),438);\r\n                        }\r\n                        if(i == 2){\r\n                            checker = \"docx\";\r\n\r\n                            Intent intent = new Intent();\r\n                            intent.setAction(Intent.ACTION_GET_CONTENT);\r\n                            intent.setType(\"application/msword*\");\r\n                            startActivityForResult(intent.createChooser(intent,\"Select MS Word File\"),438);\r\n                        }\r\n                    }\r\n                });\r\n\r\n                builder.show();\r\n\r\n            }\r\n        });\r\n    }\r\n\r\n    private void InitializeControllers() {\r\n        ChatToolBar = (Toolbar) findViewById(R.id.chat_toolbar);\r\n        setSupportActionBar(ChatToolBar);\r\n\r\n        ActionBar actionBar = getSupportActionBar();\r\n        actionBar.setDisplayHomeAsUpEnabled(true);\r\n        actionBar.setDisplayShowCustomEnabled(true);\r\n\r\n        LayoutInflater layoutInflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);\r\n        View actionBarView = layoutInflater.inflate(R.layout.custom_chat_bar, null);\r\n        actionBar.setCustomView(actionBarView);\r\n\r\n        userName = (TextView) findViewById(R.id.custom_profile_name);\r\n        userLastSeen = (TextView) findViewById(R.id.custom_user_last_seen);\r\n        userImage = (CircleImageView) findViewById(R.id.custom_profile_image);\r\n\r\n        SendMessageButton = (ImageButton) findViewById(R.id.send_message_btn);\r\n        SendFilesButton = (ImageButton) findViewById(R.id.send_files_btn) ;\r\n        //must be same \"btn\" from activity_chat.xml or app crashes -kev\r\n        MessageInputText = (EditText) findViewById(R.id.input_message);\r\n\r\n        messageAdapter = new MessageAdapter(messagesList);\r\n        userMessagesList = (RecyclerView) findViewById(R.id.private_messages_list_of_users);\r\n        linearLayoutManager = new LinearLayoutManager(this);\r\n        userMessagesList.setLayoutManager(linearLayoutManager);\r\n        userMessagesList.setAdapter(messageAdapter);\r\n\r\n        loadingBar = new ProgressDialog(this);\r\n    }\r\n\r\n    @Override\r\n    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {\r\n        super.onActivityResult(requestCode, resultCode, data);\r\n\r\n        if(requestCode ==438 && resultCode == RESULT_OK && data !=null && data.getData() !=null){\r\n\r\n            loadingBar.setTitle(\"Sending File...\");\r\n            loadingBar.setMessage(\"Please wait, your profile image is updating...\");\r\n            loadingBar.setCanceledOnTouchOutside(false);\r\n            loadingBar.show();\r\n\r\n            fileUri = data.getData();\r\n\r\n            if(!checker.equals(\"image\")){\r\n\r\n            }\r\n            else if (checker.equals(\"image\")){\r\n                StorageReference storageReference = FirebaseStorage.getInstance().getReference().child(\"Image Files\");\r\n\r\n                final String messageSenderRef = \"Messages/\" + messageSenderID + \"/\" + messageReceiverID;\r\n                final String messageReceiverRef = \"Messages/\" + messageReceiverID + \"/\" + messageSenderID;\r\n\r\n\r\n                DatabaseReference userMessageKeyRef = RootRef.child(\"Messages\")\r\n                        .child(messageSenderID)\r\n                        .child(messageReceiverID).push();\r\n                final String messagePushID = userMessageKeyRef.getKey();\r\n\r\n                final StorageReference filePath = storageReference.child(messagePushID + \".\" + \"jpg\");\r\n\r\n                uploadTask = filePath.putFile(fileUri);\r\n\r\n                uploadTask.continueWithTask(new Continuation() {\r\n                    @Override\r\n                    public Object then(@NonNull Task task) throws Exception {\r\n\r\n                        if(!task.isSuccessful()){\r\n                            throw task.getException();\r\n\r\n                        }\r\n\r\n                        return filePath.getDownloadUrl();\r\n\r\n                    }\r\n                }).addOnCompleteListener(new OnCompleteListener<Uri>() {\r\n                    @Override\r\n                    public void onComplete(@NonNull Task<Uri> task) {\r\n                        if(task.isSuccessful()){\r\n                            Uri downloadUrl = task.getResult();\r\n                            myUrl = downloadUrl.toString();\r\n\r\n                            Map messagePictureBody = new HashMap();\r\n                            messagePictureBody.put(\"message\", myUrl);\r\n                            messagePictureBody.put(\"name\", fileUri.getLastPathSegment());\r\n                            messagePictureBody.put(\"type\", checker);\r\n                            messagePictureBody.put(\"from\", messageSenderID);\r\n                            messagePictureBody.put(\"to\", messageReceiverID);\r\n                            messagePictureBody.put(\"messageID\", messagePushID);\r\n                            messagePictureBody.put(\"time\", saveCurrentTime);\r\n                            messagePictureBody.put(\"date\", saveCurrentDate);\r\n\r\n                            Map messageBodyDetails = new HashMap();\r\n                            messageBodyDetails.put(messageSenderRef + \"/\" + messagePushID, messagePictureBody);\r\n                            messageBodyDetails.put(messageReceiverRef + \"/\" + messagePushID, messagePictureBody);\r\n\r\n                            RootRef.updateChildren(messageBodyDetails).addOnCompleteListener(new OnCompleteListener() {\r\n                                @Override\r\n                                public void onComplete(@NonNull Task task) {\r\n                                    if (task.isSuccessful())\r\n                                    {\r\n                                        loadingBar.dismiss();\r\n                                        Toast.makeText(ChatActivity.this, \"Message Sent Successfully...\", Toast.LENGTH_SHORT).show();\r\n                                    }\r\n                                    else\r\n                                    {\r\n                                        loadingBar.dismiss();\r\n                                        Toast.makeText(ChatActivity.this, \"Error\", Toast.LENGTH_SHORT).show();\r\n                                    }\r\n                                    MessageInputText.setText(\"\");\r\n                                }\r\n                            });\r\n\r\n\r\n                        }\r\n                    }\r\n                });\r\n\r\n            }\r\n            else{\r\n                loadingBar.dismiss();\r\n                Toast.makeText(this, \"Nothing Selected\", Toast.LENGTH_SHORT).show();\r\n            }\r\n        }\r\n    }\r\n\r\n    @Override\r\n    protected void onStart() {\r\n        super.onStart();\r\n\r\n        RootRef.child(\"Messages\").child(messageSenderID).child(messageReceiverID)\r\n                .addChildEventListener(new ChildEventListener() {\r\n                    @Override\r\n                    public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {\r\n\r\n                        Messages messages = snapshot.getValue(Messages.class);\r\n\r\n                        messagesList.add(messages);\r\n\r\n                        messageAdapter.notifyDataSetChanged();\r\n\r\n                        userMessagesList.smoothScrollToPosition(userMessagesList.getAdapter().getItemCount());\r\n                    }\r\n\r\n\r\n\r\n                    @Override\r\n                    public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {\r\n\r\n                    }\r\n\r\n                    @Override\r\n                    public void onChildRemoved(@NonNull DataSnapshot snapshot) {\r\n\r\n                    }\r\n\r\n                    @Override\r\n                    public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {\r\n\r\n                    }\r\n\r\n                    @Override\r\n                    public void onCancelled(@NonNull DatabaseError error) {\r\n\r\n                    }\r\n                });\r\n    }\r\n\r\n    private void SendMessage() {\r\n        String messageText = MessageInputText.getText().toString();\r\n\r\n        if (TextUtils.isEmpty(messageText))\r\n        {\r\n            Toast.makeText(this, \"There is nothing to send...\", Toast.LENGTH_SHORT).show();\r\n        }\r\n        else\r\n        {\r\n            String messageSenderRef = \"Messages/\" + messageSenderID + \"/\" + messageReceiverID;\r\n            String messageReceiverRef = \"Messages/\" + messageReceiverID + \"/\" + messageSenderID;\r\n\r\n\r\n            DatabaseReference userMessageKeyRef = RootRef.child(\"Messages\")\r\n                    .child(messageSenderID)\r\n                    .child(messageReceiverID).push();\r\n\r\n            String messagePushID = userMessageKeyRef.getKey();\r\n\r\n            Map messageTextBody = new HashMap();\r\n            messageTextBody.put(\"message\", messageText);\r\n            messageTextBody.put(\"type\", \"text\");\r\n            messageTextBody.put(\"from\", messageSenderID);\r\n\r\n            Map messageBodyDetails = new HashMap();\r\n            messageBodyDetails.put(messageSenderRef + \"/\" + messagePushID, messageTextBody);\r\n            messageBodyDetails.put(messageReceiverRef + \"/\" + messagePushID, messageTextBody);\r\n\r\n            RootRef.updateChildren(messageBodyDetails).addOnCompleteListener(new OnCompleteListener() {\r\n                @Override\r\n                public void onComplete(@NonNull Task task) {\r\n                    if (task.isSuccessful())\r\n                    {\r\n                        Toast.makeText(ChatActivity.this, \"Message Sent Successfully...\", Toast.LENGTH_SHORT).show();\r\n                    }\r\n                    else\r\n                    {\r\n                        Toast.makeText(ChatActivity.this, \"Error\", Toast.LENGTH_SHORT).show();\r\n                    }\r\n                    MessageInputText.setText(\"\");\r\n                }\r\n            });\r\n        }\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/sparkdev/ChatActivity.java	(revision b73e5acc18c2daa9b4d3d980ab1fc25efd0831a7)
++++ app/src/main/java/com/example/sparkdev/ChatActivity.java	(date 1605559317442)
+@@ -73,85 +73,113 @@
+ 
+     private ProgressDialog loadingBar;
+ 
+-    @Override
+-    protected void onCreate(Bundle savedInstanceState) {
+-        super.onCreate(savedInstanceState);
+-        setContentView(R.layout.activity_chat);
++   @Override
++   protected void onCreate(Bundle savedInstanceState)
++   {
++       super.onCreate(savedInstanceState);
++       setContentView(R.layout.activity_chat);
+ 
+-
+-        nAuth = FirebaseAuth.getInstance();
+-        messageSenderID = nAuth.getCurrentUser().getUid();
+-        //kev task43
+-        RootRef = FirebaseDatabase.getInstance().getReference();
++       nAuth = FirebaseAuth.getInstance();
++       messageSenderID = nAuth.getCurrentUser().getUid();
++       RootRef = FirebaseDatabase.getInstance().getReference();
+ 
+-
+-        messageReceiverID = getIntent().getExtras().get("visit_user_id").toString();
+-        messageReceiverName = getIntent().getExtras().get("visit_user_name").toString();
+-        messageReceiverImage = getIntent().getExtras().get("visit_image").toString();
++       messageReceiverID = getIntent().getExtras().get("visit_user_id").toString();
++       messageReceiverName = getIntent().getExtras().get("visit_user_name").toString();
++       messageReceiverImage = getIntent().getExtras().get("visit_image").toString();
+ 
+-
+-        InitializeControllers();
++       InitializeControllers();
+ 
+-        userName.setText(messageReceiverName);
+-        Picasso.get().load(messageReceiverImage).placeholder(R.drawable.profile_image).into(userImage);
++       userName.setText(messageReceiverName);
++       Picasso.get().load(messageReceiverImage).placeholder(R.drawable.profile_image).into(userImage);
+ 
+-
+-        SendMessageButton.setOnClickListener(new View.OnClickListener() {
+-            @Override
+-            public void onClick(View v) {
+-                SendMessage();
+-                //on user click, SendMessage() -kev task48
+-            }
+-        });
++       SendMessageButton.setOnClickListener(new View.OnClickListener() {
++           @Override
++           public void onClick(View v)
++           {
++               SendMessage();
++           }
++       });
++
++      // DisplayLastSeen();
+ 
+-        SendFilesButton.setOnClickListener(new View.OnClickListener() {
+-            @Override
+-            public void onClick(View v) {
+-                CharSequence options[] = new CharSequence[]{
+-                        "Images",
+-                        "PDF Files",
+-                        "MS Word Files"
+-
+-                };
++       SendFilesButton.setOnClickListener(new View.OnClickListener() {
++           @Override
++           public void onClick(View v)
++           {
++               CharSequence options[] = new CharSequence[]
++                       {
++                               "Images",
++                               "PDF File",
++                               "MS Word File"
++                       };
+ 
+-                AlertDialog.Builder builder = new AlertDialog.Builder(ChatActivity.this);
+-                builder.setTitle("Select the File");
+-
+-                builder.setItems(options, new DialogInterface.OnClickListener() {
+-                    @Override
+-                    public void onClick(DialogInterface dialog, int i) {
+-                        if(i == 0){
+-                            checker = "image";
++               AlertDialog.Builder builder = new AlertDialog.Builder(ChatActivity.this);
++               builder.setTitle("Select File");
++               builder.setItems(options, new DialogInterface.OnClickListener() {
++                   @Override
++                   public void onClick(DialogInterface dialogInterface, int i)
++                   {
++                       if (i == 0)
++                       {
++                           checker = "image";
+ 
+-                            Intent intent = new Intent();
+-                            intent.setAction(Intent.ACTION_GET_CONTENT);
+-                            intent.setType("image/*");
+-                            startActivityForResult(intent.createChooser(intent,"Select Image"),438);
+-                        }
+-                        if(i == 1){
+-                            checker = "pdf";
+-
+-                            Intent intent = new Intent();
+-                            intent.setAction(Intent.ACTION_GET_CONTENT);
+-                            intent.setType("application/pdf");
+-                            startActivityForResult(intent.createChooser(intent,"Select PDF File"),438);
+-                        }
+-                        if(i == 2){
+-                            checker = "docx";
+-
+-                            Intent intent = new Intent();
+-                            intent.setAction(Intent.ACTION_GET_CONTENT);
+-                            intent.setType("application/msword*");
+-                            startActivityForResult(intent.createChooser(intent,"Select MS Word File"),438);
+-                        }
+-                    }
+-                });
+-
+-                builder.show();
++                           Intent intent = new Intent();
++                           intent.setAction(Intent.ACTION_GET_CONTENT);
++                           intent.setType("image/*");
++                           startActivityForResult(intent.createChooser(intent, "Select Image"), 438);
++                       }
++                       if (i == 1)
++                       {
++                           checker = "pdf";
++                       }
++                       if (i == 2)
++                       {
++                           checker = "docx";
++                       }
++                   }
++               });
++               builder.show();
++           }
++       });
++
++       RootRef.child("Messages").child(messageSenderID).child(messageReceiverID)
++               .addChildEventListener(new ChildEventListener() {
++                   @Override
++                   public void onChildAdded(DataSnapshot dataSnapshot, String s)
++                   {
++                       Messages messages = dataSnapshot.getValue(Messages.class);
++                       messagesList.add(messages);
++
++                       messageAdapter.notifyDataSetChanged();
++
++                       userMessagesList.smoothScrollToPosition(userMessagesList.getAdapter().getItemCount());
++                   }
++
++                   @Override
++                   public void onChildChanged(DataSnapshot dataSnapshot, String s)
++                   {
++
++                   }
++
++                   @Override
++                   public void onChildRemoved(DataSnapshot dataSnapshot)
++                   {
++
++                   }
++
++                   @Override
++                   public void onChildMoved(DataSnapshot dataSnapshot, String s)
++                   {
++
++                   }
++
++                   @Override
++                   public void onCancelled(DatabaseError databaseError)
++                   {
+ 
+-            }
+-        });
+-    }
++                   }
++               });
++   }
+ 
+     private void InitializeControllers() {
+         ChatToolBar = (Toolbar) findViewById(R.id.chat_toolbar);
+@@ -277,49 +305,8 @@
+             }
+         }
+     }
+-
+-    @Override
+-    protected void onStart() {
+-        super.onStart();
++    
+ 
+-        RootRef.child("Messages").child(messageSenderID).child(messageReceiverID)
+-                .addChildEventListener(new ChildEventListener() {
+-                    @Override
+-                    public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+-
+-                        Messages messages = snapshot.getValue(Messages.class);
+-
+-                        messagesList.add(messages);
+-
+-                        messageAdapter.notifyDataSetChanged();
+-
+-                        userMessagesList.smoothScrollToPosition(userMessagesList.getAdapter().getItemCount());
+-                    }
+-
+-
+-
+-                    @Override
+-                    public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+-
+-                    }
+-
+-                    @Override
+-                    public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+-
+-                    }
+-
+-                    @Override
+-                    public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+-
+-                    }
+-
+-                    @Override
+-                    public void onCancelled(@NonNull DatabaseError error) {
+-
+-                    }
+-                });
+-    }
+-
+     private void SendMessage() {
+         String messageText = MessageInputText.getText().toString();
+ 

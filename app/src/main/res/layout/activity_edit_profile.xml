@@ -88,6 +88,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:hint="Full Name"
             android:id="@+id/fullname"
             app:met_floatingLabel="normal"/>
@@ -96,12 +98,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Username"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:id="@+id/username"
             app:met_floatingLabel="normal"/>
 
         <com.rengwuxian.materialedittext.MaterialEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:hint="Bio"
             android:id="@+id/bio"
             app:met_floatingLabel="normal"/>

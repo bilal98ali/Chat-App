@@ -32,6 +32,7 @@
                 android:layout_alignParentTop="true"
                 android:scaleType="fitCenter"
                 />
+
             <EditText
                 android:id="@+id/login_email"
                 android:layout_width="match_parent"

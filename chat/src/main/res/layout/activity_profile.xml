@@ -37,7 +37,7 @@
         android:id="@+id/visit_profile_status"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="hey i'm using Coding Cafe chat App."
+        android:text="Hey I'm using Panther Hub."
         android:layout_below="@+id/visit_user_name"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"

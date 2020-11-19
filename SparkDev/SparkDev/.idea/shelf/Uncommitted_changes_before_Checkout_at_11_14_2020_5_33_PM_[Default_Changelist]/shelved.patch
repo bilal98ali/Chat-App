@@ -1,0 +1,54 @@
+Index: app/src/main/java/com/example/sparkdev/RegisterActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.sparkdev;\r\n\r\nimport androidx.annotation.NonNull;\r\nimport androidx.appcompat.app.AppCompatActivity;\r\n\r\nimport android.app.ProgressDialog;\r\nimport android.content.Intent;\r\nimport android.os.Bundle;\r\nimport android.text.TextUtils;\r\nimport android.util.Log;\r\nimport android.view.View;\r\nimport android.widget.Button;\r\nimport android.widget.EditText;\r\nimport android.widget.TextView;\r\nimport android.widget.Toast;\r\n\r\nimport com.google.android.gms.tasks.OnCompleteListener;\r\nimport com.google.android.gms.tasks.Task;\r\nimport com.google.firebase.auth.AuthResult;\r\nimport com.google.firebase.auth.FirebaseAuth;\r\nimport com.google.firebase.auth.FirebaseUser;\r\nimport com.google.firebase.database.core.Tag;\r\n\r\npublic class RegisterActivity extends AppCompatActivity {\r\n\r\n    private Button CreateAccountButton;\r\n    private EditText UserEmail, UserPassword;\r\n    private TextView AlreadyHaveAccountLink;\r\n\r\n    private FirebaseAuth mAuth;\r\n\r\n    private ProgressDialog loadingBar;\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_register);\r\n\r\n        mAuth = FirebaseAuth.getInstance();\r\n\r\n        InitializeFields();\r\n\r\n        AlreadyHaveAccountLink.setOnClickListener(new View.OnClickListener(){\r\n\r\n            @Override\r\n            public void onClick(View view) {\r\n\r\n                SendUserToLoginActivity();\r\n\r\n            }\r\n        });\r\n\r\n        CreateAccountButton.setOnClickListener(new View.OnClickListener(){\r\n            @Override\r\n            public void onClick (View view)\r\n            {\r\n                CreateNewAccount();\r\n            }\r\n        });\r\n    }\r\n\r\n    private void CreateNewAccount()\r\n    {\r\n        String email = UserEmail.getText().toString();\r\n        String password = UserPassword.getText().toString();\r\n\r\n        if(TextUtils.isEmpty(email))\r\n        {\r\n            Toast.makeText(this, \"Please enter email...\", Toast.LENGTH_SHORT).show();\r\n        }\r\n        if(TextUtils.isEmpty(password))\r\n        {\r\n            Toast.makeText(this, \"Please enter password...\", Toast.LENGTH_SHORT).show();\r\n        }\r\n        else\r\n        {\r\n            loadingBar.setTitle(\"Creating New Account\");\r\n            loadingBar.setMessage(\"Please wait, while we are creating new account for you...\");\r\n            loadingBar.setCanceledOnTouchOutside(true);\r\n            loadingBar.show();\r\n\r\n            mAuth.createUserWithEmailAndPassword(email, password)\r\n                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {\r\n                        @Override\r\n                        public void onComplete(@NonNull Task<AuthResult> task)\r\n                        {\r\n                            if(task.isSuccessful())\r\n                            {\r\n                                SendUserToLoginActivity();\r\n                                Toast.makeText(RegisterActivity.this, \"Account Created Successfully...\", Toast.LENGTH_SHORT).show();\r\n                                //Log.d(TAG, \"createUserWithEmail: success\");\r\n                               // FirebaseUser user = mAuth.getCurrentUser();\r\n                               // updateUI(user);\r\n\r\n                                loadingBar.dismiss();\r\n                            }\r\n                            else\r\n                            {\r\n                                String message = task.getException().toString();\r\n                                Toast.makeText(RegisterActivity.this, \"Error: \" + message, Toast.LENGTH_SHORT).show();\r\n                                loadingBar.dismiss();\r\n                            }\r\n                        }\r\n                    });\r\n        }\r\n\r\n    }\r\n\r\n    private void InitializeFields() {\r\n\r\n\r\n        CreateAccountButton = (Button) findViewById(R.id.register_button);\r\n        UserEmail = (EditText) findViewById(R.id.register_email);\r\n        UserPassword = (EditText) findViewById(R.id.register_password);\r\n        AlreadyHaveAccountLink = (TextView) findViewById(R.id.already_have_an_account_link);\r\n\r\n        loadingBar = new ProgressDialog(this);\r\n\r\n    }\r\n\r\n    private void SendUserToLoginActivity() {\r\n        Intent LoginIntent = new Intent(RegisterActivity.this, LoginActivity.class);\r\n        startActivity(LoginIntent);\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/sparkdev/RegisterActivity.java	(revision d453e9307cd8464f3a45f080b422f4132594a8b5)
++++ app/src/main/java/com/example/sparkdev/RegisterActivity.java	(date 1605392801642)
+@@ -7,7 +7,6 @@
+ import android.content.Intent;
+ import android.os.Bundle;
+ import android.text.TextUtils;
+-import android.util.Log;
+ import android.view.View;
+ import android.widget.Button;
+ import android.widget.EditText;
+@@ -18,8 +17,6 @@
+ import com.google.android.gms.tasks.Task;
+ import com.google.firebase.auth.AuthResult;
+ import com.google.firebase.auth.FirebaseAuth;
+-import com.google.firebase.auth.FirebaseUser;
+-import com.google.firebase.database.core.Tag;
+ 
+ public class RegisterActivity extends AppCompatActivity {
+ 
+@@ -119,7 +116,7 @@
+     }
+ 
+     private void SendUserToLoginActivity() {
+-        Intent LoginIntent = new Intent(RegisterActivity.this, LoginActivity.class);
++        Intent LoginIntent = new Intent(RegisterActivity.this, LogInActivity.class);
+         startActivity(LoginIntent);
+     }
+ }
+\ No newline at end of file
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    package=\"com.example.sparkdev\">\r\n\r\n    <uses-permission android:name=\"android.permission.INTERNET\" />\r\n    <uses-permission android:name=\"android.permission.READ_EXTERNAL_STORAGE\" />\r\n    <uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />\r\n\r\n    <application\r\n        android:allowBackup=\"true\"\r\n        android:icon=\"@mipmap/ic_launcher\"\r\n        android:label=\"@string/app_name\"\r\n        android:roundIcon=\"@mipmap/ic_launcher_round\"\r\n        android:supportsRtl=\"true\"\r\n        android:theme=\"@style/AppTheme\">\r\n        <activity android:name=\".ChatActivity\"\r\n            android:parentActivityName=\".MainActivity\" />\r\n        <activity android:name=\".PhoneLoginActivity\" />\r\n        <activity android:name=\".ProfileActivity\" />\r\n        <activity\r\n            android:name=\".FindFriendsActivity\"\r\n            android:parentActivityName=\".MainActivity\" />\r\n        <activity android:name=\".GroupChatActivity\" />\r\n        <activity\r\n            android:name=\".SettingsActivity\"\r\n            android:parentActivityName=\".MainActivity\" /> <!-- </activity> -->\r\n        <activity android:name=\".RegisterActivity\" />\r\n        <activity android:name=\".LoginActivity\" />\r\n        <activity\r\n            android:name=\"com.theartofdev.edmodo.cropper.CropImageActivity\"\r\n            android:theme=\"@style/Base.Theme.AppCompat\" /> <!-- optional (needed if default theme has no action bar) -->\r\n        <activity android:name=\".MainActivity\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n        </activity>\r\n    </application>\r\n\r\n</manifest>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/AndroidManifest.xml	(revision d453e9307cd8464f3a45f080b422f4132594a8b5)
++++ app/src/main/AndroidManifest.xml	(date 1605392801620)
+@@ -25,7 +25,7 @@
+             android:name=".SettingsActivity"
+             android:parentActivityName=".MainActivity" /> <!-- </activity> -->
+         <activity android:name=".RegisterActivity" />
+-        <activity android:name=".LoginActivity" />
++        <activity android:name=".LogInActivity" />
+         <activity
+             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+             android:theme="@style/Base.Theme.AppCompat" /> <!-- optional (needed if default theme has no action bar) -->

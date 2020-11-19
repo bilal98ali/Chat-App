@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">1084592601917-p47vfd0nrbhou05q410er13nbb0i4s9d.apps.googleusercontent.com</string>
+    <string name="firebase_database_url" translatable="false">https://spookydev-305fiu.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">1084592601917</string>
+    <string name="google_api_key" translatable="false">AIzaSyCMAC_9AY5LGqDXUUYVHqQiE4bP9JvXjRc</string>
+    <string name="google_app_id" translatable="false">1:1084592601917:android:a24b195e142f0201a2e354</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCMAC_9AY5LGqDXUUYVHqQiE4bP9JvXjRc</string>
+    <string name="google_storage_bucket" translatable="false">spookydev-305fiu.appspot.com</string>
+    <string name="project_id" translatable="false">spookydev-305fiu</string>
+</resources>
