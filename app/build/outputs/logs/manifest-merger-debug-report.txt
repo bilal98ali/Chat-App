@@ -1,0 +1,119 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:2:1-37:12
+INJECTED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:2:1-37:12
+INJECTED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:2:1-37:12
+INJECTED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:2:1-37:12
+INJECTED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:2:1-37:12
+INJECTED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:2:1-37:12
+INJECTED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:2:1-37:12
+	package
+		ADDED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:3:5-39
+		INJECTED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:2:1-37:12
+		INJECTED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:2:1-37:12
+		INJECTED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:2:11-69
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:5:5-80
+	android:name
+		ADDED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:5:22-77
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:6:5-81
+	android:name
+		ADDED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:6:22-78
+application
+ADDED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:8:5-35:19
+	android:supportsRtl
+		ADDED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:13:9-35
+	android:label
+		ADDED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:11:9-41
+	android:roundIcon
+		ADDED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:12:9-54
+	android:icon
+		ADDED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:10:9-43
+	android:allowBackup
+		ADDED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:9:9-35
+	android:theme
+		ADDED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:14:9-40
+activity#com.koddev.instagramtest.StartActivity
+ADDED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:15:9-21:20
+	android:name
+		ADDED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:15:19-48
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:16:13-20:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:17:17-69
+	android:name
+		ADDED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:17:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:19:17-77
+	android:name
+		ADDED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:19:27-74
+activity#com.koddev.instagramtest.InstaLoginActivity
+ADDED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:22:9-56
+	android:name
+		ADDED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:22:19-53
+activity#com.koddev.instagramtest.InstaRegisterActivity
+ADDED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:23:9-59
+	android:name
+		ADDED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:23:19-56
+activity#com.koddev.instagramtest.InstaMainActivity
+ADDED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:24:9-55
+	android:name
+		ADDED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:24:19-52
+activity#com.koddev.instagramtest.PostActivity
+ADDED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:25:9-50
+	android:name
+		ADDED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:25:19-47
+activity#com.theartofdev.edmodo.cropper.CropImageActivity
+ADDED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:26:9-28:59
+	android:theme
+		ADDED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:28:13-56
+	android:name
+		ADDED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:27:13-76
+activity#com.koddev.instagramtest.CommentsActivity
+ADDED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:29:9-54
+	android:name
+		ADDED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:29:19-51
+activity#com.koddev.instagramtest.OptionsActivity
+ADDED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:30:9-53
+	android:name
+		ADDED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:30:19-50
+activity#com.koddev.instagramtest.EditProfileActivity
+ADDED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:31:9-57
+	android:name
+		ADDED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:31:19-54
+activity#com.koddev.instagramtest.FollowersActivity
+ADDED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:32:9-55
+	android:name
+		ADDED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:32:19-52
+activity#com.koddev.instagramtest.StoryActivity
+ADDED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:33:9-51
+	android:name
+		ADDED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:33:19-48
+activity#com.koddev.instagramtest.AddStoryActivity
+ADDED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:34:9-63
+	android:name
+		ADDED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:34:19-51
+uses-sdk
+INJECTED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorAccent">#c2bdbf</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorGreen">#4cab03</color>
+    <color name="colorPrimary">#224071</color>
+    <color name="colorPrimaryDark">#403d3d</color>
+    <color name="colorWindow">?android:attr/windowBackground</color>
+    <string name="app_name">InstagramTest</string>
+    <string name="default_web_client_id" translatable="false">433192781809-brrb9ovoq69ip5fg01tvcmtlvc4mfaqs.apps.googleusercontent.com</string>
+    <string name="firebase_database_url" translatable="false">https://ints-f91fa.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">433192781809</string>
+    <string name="google_api_key" translatable="false">AIzaSyC_zYVzc_9Rs-gXmWQQidHlmy-cvcv0aSU</string>
+    <string name="google_app_id" translatable="false">1:433192781809:android:1b22e0e2edaa0d5e542650</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyC_zYVzc_9Rs-gXmWQQidHlmy-cvcv0aSU</string>
+    <string name="google_storage_bucket" translatable="false">ints-f91fa.appspot.com</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="project_id" translatable="false">ints-f91fa</string>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+</resources>

@@ -1,0 +1,99 @@
+com/example/sparkdev/PhoneLoginActivity.java
+ com.example.sparkdev.PhoneLoginActivity
+ com.example.sparkdev.PhoneLoginActivity$1
+ com.example.sparkdev.PhoneLoginActivity$2
+ com.example.sparkdev.PhoneLoginActivity$3
+ com.example.sparkdev.PhoneLoginActivity$4
+com/example/sparkdev/MainActivity.java
+ com.example.sparkdev.MainActivity
+ com.example.sparkdev.MainActivity$1
+ com.example.sparkdev.MainActivity$2
+ com.example.sparkdev.MainActivity$3
+ com.example.sparkdev.MainActivity$4
+com/example/sparkdev/RegisterActivity.java
+ com.example.sparkdev.RegisterActivity
+ com.example.sparkdev.RegisterActivity$1
+ com.example.sparkdev.RegisterActivity$2
+ com.example.sparkdev.RegisterActivity$3
+com/example/sparkdev/FindFriendsActivity.java
+ com.example.sparkdev.FindFriendsActivity
+ com.example.sparkdev.FindFriendsActivity$1
+ com.example.sparkdev.FindFriendsActivity$1$1
+ com.example.sparkdev.FindFriendsActivity$FindFriendViewHolder
+com/example/sparkdev/GroupsFragment.java
+ com.example.sparkdev.GroupsFragment
+ com.example.sparkdev.GroupsFragment$1
+ com.example.sparkdev.GroupsFragment$2
+com/example/sparkdev/RequestFragment.java
+ com.example.sparkdev.RequestFragment
+ com.example.sparkdev.RequestFragment$1
+ com.example.sparkdev.RequestFragment$1$1
+ com.example.sparkdev.RequestFragment$1$1$1
+ com.example.sparkdev.RequestFragment$1$1$1$1
+ com.example.sparkdev.RequestFragment$1$1$1$1$1
+ com.example.sparkdev.RequestFragment$1$1$1$1$1$1
+ com.example.sparkdev.RequestFragment$1$1$1$1$1$1$1
+ com.example.sparkdev.RequestFragment$1$1$1$1$1$1$1$1
+ com.example.sparkdev.RequestFragment$1$1$1$1$1$1$1$1$1
+ com.example.sparkdev.RequestFragment$1$1$1$1$1$2
+ com.example.sparkdev.RequestFragment$1$1$1$1$1$2$1
+ com.example.sparkdev.RequestFragment$1$1$1$1$1$2$1$1
+ com.example.sparkdev.RequestFragment$RequestsViewHolder
+com/example/sparkdev/GroupChatActivity.java
+ com.example.sparkdev.GroupChatActivity
+ com.example.sparkdev.GroupChatActivity$1
+ com.example.sparkdev.GroupChatActivity$2
+ com.example.sparkdev.GroupChatActivity$3
+com/example/sparkdev/Contacts.java
+ com.example.sparkdev.Contacts
+com/example/sparkdev/SettingsActivity.java
+ com.example.sparkdev.SettingsActivity
+ com.example.sparkdev.SettingsActivity$1
+ com.example.sparkdev.SettingsActivity$2
+ com.example.sparkdev.SettingsActivity$3
+ com.example.sparkdev.SettingsActivity$3$1
+ com.example.sparkdev.SettingsActivity$3$1$1
+ com.example.sparkdev.SettingsActivity$4
+ com.example.sparkdev.SettingsActivity$5
+com/example/sparkdev/LoginActivity.java
+ com.example.sparkdev.LoginActivity
+ com.example.sparkdev.LoginActivity$1
+ com.example.sparkdev.LoginActivity$2
+ com.example.sparkdev.LoginActivity$3
+ com.example.sparkdev.LoginActivity$4
+com/example/sparkdev/BuildConfig.java
+ com.example.sparkdev.BuildConfig
+com/example/sparkdev/ChatActivity.java
+ com.example.sparkdev.ChatActivity
+ com.example.sparkdev.ChatActivity$1
+ com.example.sparkdev.ChatActivity$2
+com/example/sparkdev/TabsAccessorAdapter.java
+ com.example.sparkdev.TabsAccessorAdapter
+com/example/sparkdev/ContactsFragment.java
+ com.example.sparkdev.ContactsFragment
+ com.example.sparkdev.ContactsFragment$1
+ com.example.sparkdev.ContactsFragment$1$1
+ com.example.sparkdev.ContactsFragment$ContactsViewHolder
+com/example/sparkdev/ChatsFragment.java
+ com.example.sparkdev.ChatsFragment
+ com.example.sparkdev.ChatsFragment$1
+ com.example.sparkdev.ChatsFragment$1$1
+ com.example.sparkdev.ChatsFragment$1$1$1
+ com.example.sparkdev.ChatsFragment$ChatsViewHolder
+com/example/sparkdev/ProfileActivity.java
+ com.example.sparkdev.ProfileActivity
+ com.example.sparkdev.ProfileActivity$1
+ com.example.sparkdev.ProfileActivity$2
+ com.example.sparkdev.ProfileActivity$2$1
+ com.example.sparkdev.ProfileActivity$2$2
+ com.example.sparkdev.ProfileActivity$3
+ com.example.sparkdev.ProfileActivity$4
+ com.example.sparkdev.ProfileActivity$4$1
+ com.example.sparkdev.ProfileActivity$5
+ com.example.sparkdev.ProfileActivity$5$1
+ com.example.sparkdev.ProfileActivity$5$1$1
+ com.example.sparkdev.ProfileActivity$5$1$1$1
+ com.example.sparkdev.ProfileActivity$6
+ com.example.sparkdev.ProfileActivity$6$1
+ com.example.sparkdev.ProfileActivity$7
+ com.example.sparkdev.ProfileActivity$7$1

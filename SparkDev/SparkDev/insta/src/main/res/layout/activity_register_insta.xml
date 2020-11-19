@@ -10,9 +10,22 @@
     tools:context=".InstaRegisterActivity">
 
     <ImageView
+        android:id="@+id/logo"
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
+        android:layout_height="200dp"
         android:src="@drawable/logo"/>
+
+    <TextView
+        android:id="@+id/panther_hub"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="PantherHub"
+        android:textColor="#2c446c"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:layout_below="@+id/logo"
+        />
 
     <EditText
         android:layout_width="match_parent"
@@ -20,7 +33,7 @@
         android:background="@drawable/edittext_background"
         android:hint="Username"
         android:id="@+id/username"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="20dp"
         android:padding="10dp"/>
 
     <EditText

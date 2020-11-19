@@ -23,21 +23,34 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <TextView
+                android:id="@+id/panther_hub"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="PantherHub"
+                android:textColor="#2c446c"
+                android:textStyle="bold"
+                android:textSize="30sp"
+                android:gravity="center"
+                android:layout_below="@+id/login_image"
+                />
+
             <ImageView
                 android:id="@+id/login_image"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="200dp"
                 android:src="@drawable/login_photo"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:scaleType="fitCenter"
                 />
+
             <EditText
                 android:id="@+id/login_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
-                android:layout_below="@+id/login_image"
+                android:layout_below="@+id/panther_hub"
                 android:hint="Email"
                 android:inputType="textEmailAddress"
                 android:padding="4dp"
@@ -69,7 +82,7 @@
                 android:layout_below="@+id/login_password"
                 android:text="Forgot Password?"
                 android:textAlignment="textEnd"
-                android:textSize="17sp"
+                android:textSize="15sp"
                 android:textStyle="bold"
                 android:textColor="@color/colorPrimaryDark"
                 android:layout_marginLeft="15dp"
@@ -86,7 +99,7 @@
                 android:layout_marginTop="4dp"
                 android:layout_marginRight="19dp"
                 android:text="Login"
-                android:textSize="21sp"
+                android:textSize="17sp"
                 android:textColor="@android:color/background_light"
                 android:background="@drawable/buttons"/>
 
@@ -97,7 +110,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/login_button"
-                android:text="Need a New Account?"
+                android:text="Don't have an account? Sign up."
                 android:textAlignment="center"
                 android:textSize="17sp"
                 android:textStyle="bold"
@@ -113,7 +126,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/need_new_account_link"
-                android:text="or Login using your"
+                android:text="Or login using your"
                 android:textAlignment="center"
                 android:textSize="17sp"
                 android:textStyle="bold"
@@ -132,7 +145,7 @@
                 android:layout_marginTop="4dp"
                 android:layout_marginRight="19dp"
                 android:text="Phone"
-                android:textSize="14sp"
+                android:textSize="17sp"
                 android:textColor="@android:color/background_light"
                 android:background="@drawable/buttons"
                 android:drawableStart="@drawable/phone"

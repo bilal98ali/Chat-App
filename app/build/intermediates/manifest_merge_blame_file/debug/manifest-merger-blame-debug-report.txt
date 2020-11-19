@@ -1,0 +1,86 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.koddev.instagramtest"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="17"
+8-->C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="28" />
+9-->C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+11-->C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:5:5-80
+11-->C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:5:22-77
+12    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+12-->C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:6:5-81
+12-->C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:6:22-78
+13
+14    <application
+14-->C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:8:5-35:19
+15        android:allowBackup="true"
+15-->C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:9:9-35
+16        android:icon="@mipmap/ic_launcher"
+16-->C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:10:9-43
+17        android:label="@string/app_name"
+17-->C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:11:9-41
+18        android:roundIcon="@mipmap/ic_launcher_round"
+18-->C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:12:9-54
+19        android:supportsRtl="true"
+19-->C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:13:9-35
+20        android:theme="@style/AppTheme" >
+20-->C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:14:9-40
+21        <activity android:name="com.koddev.instagramtest.StartActivity" >
+21-->C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:15:9-21:20
+21-->C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:15:19-48
+22            <intent-filter>
+22-->C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:16:13-20:29
+23                <action android:name="android.intent.action.MAIN" />
+23-->C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:17:17-69
+23-->C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:17:25-66
+24
+25                <category android:name="android.intent.category.LAUNCHER" />
+25-->C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:19:17-77
+25-->C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:19:27-74
+26            </intent-filter>
+27        </activity>
+28        <activity android:name="com.koddev.instagramtest.InstaLoginActivity" />
+28-->C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:22:9-56
+28-->C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:22:19-53
+29        <activity android:name="com.koddev.instagramtest.InstaRegisterActivity" />
+29-->C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:23:9-59
+29-->C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:23:19-56
+30        <activity android:name="com.koddev.instagramtest.InstaMainActivity" />
+30-->C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:24:9-55
+30-->C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:24:19-52
+31        <activity android:name="com.koddev.instagramtest.PostActivity" />
+31-->C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:25:9-50
+31-->C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:25:19-47
+32        <activity
+32-->C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:26:9-28:59
+33            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+33-->C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:27:13-76
+34            android:theme="@style/Base.Theme.AppCompat" />
+34-->C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:28:13-56
+35        <activity android:name="com.koddev.instagramtest.CommentsActivity" />
+35-->C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:29:9-54
+35-->C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:29:19-51
+36        <activity android:name="com.koddev.instagramtest.OptionsActivity" />
+36-->C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:30:9-53
+36-->C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:30:19-50
+37        <activity android:name="com.koddev.instagramtest.EditProfileActivity" />
+37-->C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:31:9-57
+37-->C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:31:19-54
+38        <activity android:name="com.koddev.instagramtest.FollowersActivity" />
+38-->C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:32:9-55
+38-->C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:32:19-52
+39        <activity android:name="com.koddev.instagramtest.StoryActivity" />
+39-->C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:33:9-51
+39-->C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:33:19-48
+40        <activity android:name="com.koddev.instagramtest.AddStoryActivity" />
+40-->C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:34:9-63
+40-->C:\Users\Student\Desktop\SparkDev-Mobile-Dev\app\src\main\AndroidManifest.xml:34:19-51
+41    </application>
+42
+43</manifest>
