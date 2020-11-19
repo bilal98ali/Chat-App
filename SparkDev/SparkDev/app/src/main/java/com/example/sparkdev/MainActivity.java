@@ -189,6 +189,10 @@ public class MainActivity extends AppCompatActivity
 
                 SendUserToFindFriendsActivity();
         }
+        if (item.getItemId() == R.id.main_Insta_option) {
+
+            SendUserToInstaActivity();
+        }
 
         return true;
     }
@@ -261,11 +265,18 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void SendUserToFindFriendsActivity() {
-        Intent findFriendsIntent = new Intent(MainActivity.this, InstaMainActivity.class);
+        Intent findFriendsIntent = new Intent(MainActivity.this, FindFriendsActivity.class);
       //  findFriendsIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(findFriendsIntent);
       //  finish();
     }
+    private void     SendUserToInstaActivity() {
+        Intent findFriendsIntent = new Intent(MainActivity.this, InstaMainActivity.class);
+        //  findFriendsIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(findFriendsIntent);
+        //  finish();
+    }
+
 
     private void updateUserStatus(String state){
         String saveCurrentTime, saveCurrentDate;
