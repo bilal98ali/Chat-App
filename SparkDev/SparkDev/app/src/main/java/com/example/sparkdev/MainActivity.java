@@ -77,10 +77,10 @@ public class MainActivity extends AppCompatActivity
     protected void onStart(){
         super.onStart();
 
-        FirebaseUser currentUser = mAuth.getCurrentUser();
+       FirebaseUser currentUser = mAuth.getCurrentUser();
 
         if(currentUser == null){
-            SendUserToLoginActivity();
+           Toast.makeText(this, "This should not be showing up!!!", Toast.LENGTH_SHORT);
         }
         else{
             updateUserStatus("online");
@@ -121,7 +121,7 @@ public class MainActivity extends AppCompatActivity
         RootRef.child("Users").child(currentUserID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if((dataSnapshot.child("name").exists())){
+                if((dataSnapshot.child("fullname").exists())){
                     Toast.makeText( MainActivity.this, "Welcome", Toast.LENGTH_SHORT).show();
                 }
                 else{
@@ -172,12 +172,12 @@ public class MainActivity extends AppCompatActivity
     public boolean onOptionsItemSelected(MenuItem item) {
         super.onOptionsItemSelected(item);
 
-        if (item.getItemId() == R.id.main_logout_option)
+       /* if (item.getItemId() == R.id.main_logout_option)
         {
             updateUserStatus("offline");
             mAuth.signOut();
             SendUserToLoginActivity();
-        }
+        }*/
         if (item.getItemId() == R.id.main_settings_option) {
             SendUserToSettingsActivity();
         }
@@ -248,12 +248,12 @@ public class MainActivity extends AppCompatActivity
                 });
     }
 
-    private void SendUserToLoginActivity() {
+    /*private void SendUserToLoginActivity() {
         Intent loginIntent = new Intent(MainActivity.this, LoginActivity.class);
         loginIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(loginIntent);
         finish();
-    }
+    }*/
 
     private void SendUserToSettingsActivity() {
         Intent settingsIntent = new Intent(MainActivity.this, SettingsActivity.class);

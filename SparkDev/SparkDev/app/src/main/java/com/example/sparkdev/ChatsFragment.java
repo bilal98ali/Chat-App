@@ -86,8 +86,8 @@ public class ChatsFragment extends Fragment {
                                 retImage[0] = snapshot.child("image").getValue().toString();
                                 Picasso.get().load(retImage[0]).into(holder.profileImage);
                             }
-                            final String retName = snapshot.child("name").getValue().toString();
-                            final String retStatus = snapshot.child("status").getValue().toString();
+                            final String retName = snapshot.child("fullname").getValue().toString();
+                            final String retStatus = snapshot.child("bio").getValue().toString();
 
                             holder.userName.setText(retName);
                          ///   holder.userStatus.setText("Last seen: " + "\n" +"Date " + "Time ");  not needed anymore after vid 57

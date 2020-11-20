@@ -143,7 +143,7 @@ public class SettingsActivity extends AppCompatActivity {
                             public void onSuccess(Uri uri) {
 
                                 final String downloadUrl = uri.toString();
-                                RootRef.child("Users").child(currentUserID).child("image").setValue(downloadUrl)
+                                RootRef.child("Users").child(currentUserID).child("imageurl").setValue(downloadUrl)
                                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
@@ -180,9 +180,9 @@ public class SettingsActivity extends AppCompatActivity {
                 Toast.makeText(this, "Please write your status...", Toast.LENGTH_SHORT).show();
             } else {
                 HashMap<String, Object> profileMap = new HashMap<>();
-                profileMap.put("uid", currentUserID);
-                profileMap.put("name", setUserName);
-                profileMap.put("status", setStatus);
+                profileMap.put("id", currentUserID);
+                profileMap.put("fullname", setUserName);
+                profileMap.put("bio", setStatus);
                 RootRef.child("Users").child(currentUserID).updateChildren(profileMap)
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
@@ -211,17 +211,17 @@ public class SettingsActivity extends AppCompatActivity {
                     .addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                            if ((dataSnapshot.exists() && (dataSnapshot.hasChild("name") && (dataSnapshot.hasChild("image"))))) {
-                                String retrieveUserName = dataSnapshot.child("name").getValue().toString();
-                                String retrievesStatus = dataSnapshot.child("status").getValue().toString();
-                                String retrieveProfileImage = dataSnapshot.child("image").getValue().toString();
+                            if ((dataSnapshot.exists() && (dataSnapshot.hasChild("fullname") && (dataSnapshot.hasChild("imageurl"))))) {
+                                String retrieveUserName = dataSnapshot.child("fullname").getValue().toString();
+                                String retrievesStatus = dataSnapshot.child("bio").getValue().toString();
+                                String retrieveProfileImage = dataSnapshot.child("imageurl").getValue().toString();
 
                                 userName.setText(retrieveUserName);
                                 userStatus.setText(retrievesStatus);
                                 Picasso.get().load(retrieveProfileImage).into(userProfileImage);
-                            } else if ((dataSnapshot.exists() && (dataSnapshot.hasChild("name")))) {
-                                String retrieveUserName = dataSnapshot.child("name").getValue().toString();
-                                String retrievesStatus = dataSnapshot.child("status").getValue().toString();
+                            } else if ((dataSnapshot.exists() && (dataSnapshot.hasChild("fullname")))) {
+                                String retrieveUserName = dataSnapshot.child("fullname").getValue().toString();
+                                String retrievesStatus = dataSnapshot.child("bio").getValue().toString();
 
                                 userName.setText(retrieveUserName);
                                 userStatus.setText(retrievesStatus);

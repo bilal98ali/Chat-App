@@ -59,11 +59,11 @@ public class ProfileActivity extends AppCompatActivity {
         UserRef.child(receiverUserID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if ((dataSnapshot.exists())  &&  (dataSnapshot.hasChild("image")))
+                if ((dataSnapshot.exists())  &&  (dataSnapshot.hasChild("imageurl")))
                 {
-                    String userImage = dataSnapshot.child("image").getValue().toString();
-                    String userName = dataSnapshot.child("name").getValue().toString();
-                    String userstatus = dataSnapshot.child("status").getValue().toString();
+                    String userImage = dataSnapshot.child("imageurl").getValue().toString();
+                    String userName = dataSnapshot.child("fullname").getValue().toString();
+                    String userstatus = dataSnapshot.child("bio").getValue().toString();
                     // I know userstatus var doesnt follow typical camel case but thats how he did it in vid -Dani
 
                     Picasso.get().load(userImage).placeholder(R.drawable.profile_image).into(userProfileImage);
@@ -73,8 +73,8 @@ public class ProfileActivity extends AppCompatActivity {
                     ManageChatRequests();
                 }
                 else{
-                    String userName = dataSnapshot.child("name").getValue().toString();
-                    String userstatus = dataSnapshot.child("status").getValue().toString();
+                    String userName = dataSnapshot.child("fullname").getValue().toString();
+                    String userstatus = dataSnapshot.child("bio").getValue().toString();
 
                     userProfileName.setText(userName);
                     userProfileStatus.setText(userstatus);

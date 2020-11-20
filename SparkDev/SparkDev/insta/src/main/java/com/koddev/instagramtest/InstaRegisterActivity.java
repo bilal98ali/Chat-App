@@ -88,6 +88,7 @@ public class InstaRegisterActivity extends AppCompatActivity {
                             reference = FirebaseDatabase.getInstance().getReference().child("Users").child(userID);
                             HashMap<String, Object> map = new HashMap<>();
                             map.put("id", userID);
+                            map.put("uid", userID);
                             map.put("username", username.toLowerCase());
                             map.put("fullname", fullname);
                             map.put("imageurl", "https://firebasestorage.googleapis.com/v0/b/instagramtest-fcbef.appspot.com/o/placeholder.png?alt=media&token=b09b809d-a5f8-499b-9563-5252262e9a49");
