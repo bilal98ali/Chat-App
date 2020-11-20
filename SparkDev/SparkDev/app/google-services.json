@@ -1,34 +1,92 @@
 {
   "project_info": {
-    "project_number": "1084592601917",
-    "firebase_url": "https://spookydev-305fiu.firebaseio.com",
-    "project_id": "spookydev-305fiu",
-    "storage_bucket": "spookydev-305fiu.appspot.com"
+    "project_number": "433192781809",
+    "firebase_url": "https://ints-f91fa.firebaseio.com",
+    "project_id": "ints-f91fa",
+    "storage_bucket": "ints-f91fa.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1084592601917:android:a24b195e142f0201a2e354",
+        "mobilesdk_app_id": "1:433192781809:android:4cfdf1dfce215317542650",
         "android_client_info": {
           "package_name": "com.example.sparkdev"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1084592601917-p47vfd0nrbhou05q410er13nbb0i4s9d.apps.googleusercontent.com",
+          "client_id": "433192781809-brrb9ovoq69ip5fg01tvcmtlvc4mfaqs.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCMAC_9AY5LGqDXUUYVHqQiE4bP9JvXjRc"
+          "current_key": "AIzaSyC_zYVzc_9Rs-gXmWQQidHlmy-cvcv0aSU"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1084592601917-p47vfd0nrbhou05q410er13nbb0i4s9d.apps.googleusercontent.com",
+              "client_id": "433192781809-brrb9ovoq69ip5fg01tvcmtlvc4mfaqs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:433192781809:android:bc96931f1c654328542650",
+        "android_client_info": {
+          "package_name": "com.koddev.insta"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "433192781809-brrb9ovoq69ip5fg01tvcmtlvc4mfaqs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_zYVzc_9Rs-gXmWQQidHlmy-cvcv0aSU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "433192781809-brrb9ovoq69ip5fg01tvcmtlvc4mfaqs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:433192781809:android:1b22e0e2edaa0d5e542650",
+        "android_client_info": {
+          "package_name": "com.koddev.instagramtest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "433192781809-brrb9ovoq69ip5fg01tvcmtlvc4mfaqs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_zYVzc_9Rs-gXmWQQidHlmy-cvcv0aSU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "433192781809-brrb9ovoq69ip5fg01tvcmtlvc4mfaqs.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,13 +7,26 @@
 
     <ImageView
         android:id="@+id/register_image"
+        android:layout_marginTop="0dp"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:src="@drawable/signup_photo"
+        android:src="@drawable/roary"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:scaleType="fitCenter"
+        android:scaleType="fitXY"
         />
+
+    <TextView
+        android:id="@+id/panther_hub"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#081E3F"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:layout_below="@+id/register_image"
+        />
+
     <EditText
         android:id="@+id/register_email"
         android:layout_width="match_parent"
@@ -22,11 +34,12 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/register_image"
         android:hint="Email"
+        android:textSize="15dp"
         android:inputType="textEmailAddress"
         android:padding="4dp"
-        android:drawableStart="@drawable/email"
+        android:drawableStart="@drawable/rsz_email"
         android:layout_marginLeft="17dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="55dp"
         android:layout_marginRight="17dp"/>
 
     <EditText
@@ -38,7 +51,8 @@
         android:hint="Password"
         android:inputType="textPassword"
         android:padding="4dp"
-        android:drawableStart="@drawable/password"
+        android:textSize="15dp"
+        android:drawableStart="@drawable/rsz_password"
         android:layout_marginLeft="17dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="17dp"/>
@@ -52,10 +66,10 @@
         android:layout_below="@+id/register_password"
         android:padding="4dp"
         android:layout_marginLeft="19dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:layout_marginRight="19dp"
         android:text="Create Account"
-        android:textSize="17sp"
+        android:textSize="15sp"
         android:textColor="@android:color/background_light"
         android:background="@drawable/buttons"/>
 
@@ -68,11 +82,11 @@
         android:layout_below="@+id/register_button"
         android:text="Already have an account? Click here."
         android:textAlignment="center"
-        android:textSize="17sp"
+        android:textSize="15sp"
         android:textStyle="bold"
         android:textColor="@color/colorPrimaryDark"
         android:layout_marginLeft="15dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:layout_marginRight="23dp"/>
 
 </RelativeLayout>

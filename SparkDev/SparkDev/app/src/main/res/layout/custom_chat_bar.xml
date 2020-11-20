@@ -11,7 +11,7 @@
         android:layout_height="47dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
-        android:src="@drawable/profile_image"
+        android:src="@drawable/profile_photo"
         android:cropToPadding="true"
         android:layout_marginRight="10dp"
         />
@@ -22,10 +22,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:text="Display UserName"
+        android:text="Display Username"
         android:textColor="@android:color/background_light"
         android:textStyle="bold"
-        android:textSize="18sp"
+        android:textSize="20sp"
         />
 
 
@@ -36,10 +36,9 @@
         android:layout_below="@+id/custom_profile_name"
         android:layout_alignParentStart="true"
         android:layout_marginTop="3dp"
-        android:text="Last Seen"
+        android:text="Last seen"
         android:textColor="@android:color/background_light"
-        android:textStyle="bold"
-        android:textSize="14sp"
+        android:textSize="15sp"
         />
 
 

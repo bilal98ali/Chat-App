@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#2c446c</color>
-    <color name="colorPrimaryDark">#1F1E22</color>
-    <color name="colorAccent">#c2bdbf</color>
+    <color name="colorPrimary">#2C446C</color>
+    <color name="colorPrimaryDark">#B6862C</color>
+    <color name="colorAccent">#FBFEFB</color>
+
+    // #2C446C (Dark Blue 1.0), #C2BDBF (Tinted White) or #FBFEFB (Baby Powder White)
+
+    // #B6862C (Gold), #082E3F (Dark Blue 2.0), #FFFFFF (White)
+    // Line 9 HEX codes from: https://brand.fiu.edu/design-resources/colors/index.html
+    // - Ali
+
 </resources>
