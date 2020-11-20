@@ -24,7 +24,7 @@
         android:text="Settings"
         android:textColor="@color/colorPrimaryDark"
         android:layout_margin="8dp"
-        android:textSize="18sp"/>
+        android:textSize="16sp"/>
 
     <View
         android:layout_width="match_parent"
@@ -38,7 +38,7 @@
         android:id="@+id/logout"
         android:textColor="@color/colorPrimaryDark"
         android:layout_margin="8dp"
-        android:textSize="18sp"/>
+        android:textSize="16sp"/>
 
     <View
         android:layout_width="match_parent"

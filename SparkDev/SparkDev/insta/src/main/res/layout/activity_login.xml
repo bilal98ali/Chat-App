@@ -7,20 +7,23 @@
     android:orientation="vertical"
     android:padding="10dp"
     android:gravity="center"
+    android:layout_marginTop="30dp"
+    android:layout_marginBottom="30dp"
     tools:context=".InstaLoginActivity">
 
     <ImageView
         android:id="@+id/logo"
         android:layout_width="wrap_content"
-        android:layout_height="200dp"
-        android:src="@drawable/logo"/>
+        android:layout_height="175dp"
+        android:src="@drawable/logo"
+        android:layout_marginBottom="-20dp"/>
 
     <TextView
         android:id="@+id/panther_hub"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="PantherHub"
-        android:textColor="#2c446c"
+        android:textColor="#B6862C"
         android:textStyle="bold"
         android:textSize="30sp"
         android:gravity="center"
@@ -32,6 +35,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/edittext_background"
         android:hint="Email"
+        android:textSize="15dp"
         android:id="@+id/email"
         android:inputType="textEmailAddress"
         android:layout_marginTop="20dp"
@@ -42,6 +46,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/edittext_background"
         android:hint="Password"
+        android:textSize="15dp"
         android:id="@+id/password"
         android:inputType="textPassword"
         android:layout_marginTop="15dp"
@@ -52,6 +57,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:text="Log in"
+        android:textSize="16dp"
         android:id="@+id/login"
         android:textColor="@color/colorPrimary"
         android:background="@drawable/button_background"/>
@@ -59,8 +65,10 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Don't have an account? Sign up"
+        android:text="Don't have an account? Sign up here!"
+        android:textSize="15dp"
+        android:textColor="#B6862C"
         android:id="@+id/txt_signup"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="15dp"/>
 
 </LinearLayout>

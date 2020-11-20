@@ -14,14 +14,14 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="110dp"
-        android:src="@drawable/profile_image"
+        android:src="@drawable/profile_pic"
         />
 
     <TextView
         android:id="@+id/visit_user_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="user name"
+        android:text="Username"
         android:layout_below="@+id/visit_profile_image"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
@@ -37,7 +37,7 @@
         android:id="@+id/visit_profile_status"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="hey i'm using Coding Cafe chat App."
+        android:text="Holá, I'm using PantherHub!"
         android:layout_below="@+id/visit_user_name"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
@@ -45,7 +45,6 @@
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textSize="25sp"
-        android:textStyle="bold"
         />
 
 
@@ -59,8 +58,7 @@
         android:layout_marginRight="65dp"
         android:textColor="@android:color/background_light"
         android:background="@drawable/buttons"
-        android:textStyle="bold"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:text="Send Message"
         android:textAllCaps="false"
         />

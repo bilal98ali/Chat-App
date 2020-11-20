@@ -57,7 +57,7 @@
             android:id="@+id/input_group_message"
             android:layout_width="320dp"
             android:layout_height="wrap_content"
-            android:hint="write your message here"
+            android:hint="Don't be shy, send a message..."
             android:padding="17dp"
             >
         </EditText>

@@ -12,7 +12,8 @@
     <ImageView
         android:id="@+id/logo"
         android:layout_width="wrap_content"
-        android:layout_height="200dp"
+        android:layout_height="175dp"
+        android:layout_marginBottom="-20dp"
         android:src="@drawable/logo"/>
 
     <TextView
@@ -20,7 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="PantherHub"
-        android:textColor="#2c446c"
+        android:textColor="#B6862C"
         android:textStyle="bold"
         android:textSize="30sp"
         android:gravity="center"
@@ -32,6 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="Log in"
+        android:textSize="16dp"
         android:id="@+id/login"
         android:textColor="@color/colorPrimary"
         android:background="@drawable/button_background"/>
@@ -41,6 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:text="Register"
+        android:textSize="16dp"
         android:id="@+id/register"
         android:textColor="@color/colorPrimary"
         android:background="@drawable/button_background"/>

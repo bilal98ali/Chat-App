@@ -50,6 +50,7 @@
                     android:text="SAVE"
                     android:id="@+id/save"
                     android:textSize="16sp"
+                    android:textStyle="bold"
                     android:layout_centerVertical="true"
                     android:textColor="@color/colorPrimary"
                     android:layout_alignParentRight="true"
@@ -89,6 +90,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:hint="Full Name"
+            android:textSize="15dp"
             android:id="@+id/fullname"
             app:met_floatingLabel="normal"/>
 
@@ -96,13 +98,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Username"
+            android:textSize="15dp"
             android:id="@+id/username"
             app:met_floatingLabel="normal"/>
 
         <com.rengwuxian.materialedittext.MaterialEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Bio"
+            android:hint="How're you feeling panther?"
+            android:textSize="15dp"
             android:id="@+id/bio"
             app:met_floatingLabel="normal"/>
 

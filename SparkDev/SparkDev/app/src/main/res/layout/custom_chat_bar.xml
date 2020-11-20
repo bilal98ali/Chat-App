@@ -11,7 +11,7 @@
         android:layout_height="47dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
-        android:src="@drawable/profile_image"
+        android:src="@drawable/profile_pic"
         android:cropToPadding="true"
         android:layout_marginRight="10dp"
         />
