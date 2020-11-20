@@ -17,15 +17,13 @@ import java.util.HashMap;
 
 
 public class OptionsActivity extends AppCompatActivity {
-    private DatabaseReference RootRef;
-    private String currentUserID;
+
     TextView logout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_options);
-        RootRef = FirebaseDatabase.getInstance().getReference();
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -44,35 +42,12 @@ public class OptionsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
-                updateUserStatus("offline");
                 startActivity(new Intent(OptionsActivity.this, StartActivity.class)
                         .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
             }
         });
     }
 
-    private void updateUserStatus(String state){
-
-        String saveCurrentTime, saveCurrentDate;
-
-        Calendar calendar = Calendar.getInstance();
-
-        SimpleDateFormat currentDate = new SimpleDateFormat("MMM dd, yyyy");
-        saveCurrentDate = currentDate.format(calendar.getTime());
-
-        SimpleDateFormat currentTime = new SimpleDateFormat("hh:mm a");
-        saveCurrentTime = currentTime.format(calendar.getTime());
-
-        HashMap<String, Object> onlineStateMap = new HashMap<>();
-        onlineStateMap.put("time", saveCurrentTime);
-        onlineStateMap.put("date", saveCurrentDate);
-        onlineStateMap.put("state", state);
-
-        currentUserID = FirebaseAuth.getInstance().getCurrentUser().getUid();
-
-        RootRef.child("Users").child(currentUserID).child("userState")
-                .updateChildren(onlineStateMap);
-    }
 
 
 

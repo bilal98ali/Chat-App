@@ -33,13 +33,11 @@ public class InstaLoginActivity extends AppCompatActivity {
     TextView txt_signup;
 
     FirebaseAuth auth;
-    private DatabaseReference RootRef;
-    private String currentUserID;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        RootRef = FirebaseDatabase.getInstance().getReference();
 
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
@@ -77,7 +75,6 @@ public class InstaLoginActivity extends AppCompatActivity {
 
                                         DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Users")
                                                 .child(auth.getCurrentUser().getUid());
-                                        updateUserStatus("online");
                                         reference.addValueEventListener(new ValueEventListener() {
                                             @Override
                                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -104,29 +101,6 @@ public class InstaLoginActivity extends AppCompatActivity {
         });
     }
 
-
-    private void updateUserStatus(String state){
-
-        String saveCurrentTime, saveCurrentDate;
-
-        Calendar calendar = Calendar.getInstance();
-
-        SimpleDateFormat currentDate = new SimpleDateFormat("MMM dd, yyyy");
-        saveCurrentDate = currentDate.format(calendar.getTime());
-
-        SimpleDateFormat currentTime = new SimpleDateFormat("hh:mm a");
-        saveCurrentTime = currentTime.format(calendar.getTime());
-
-        HashMap<String, Object> onlineStateMap = new HashMap<>();
-        onlineStateMap.put("time", saveCurrentTime);
-        onlineStateMap.put("date", saveCurrentDate);
-        onlineStateMap.put("state", state);
-
-        currentUserID = FirebaseAuth.getInstance().getCurrentUser().getUid();
-
-        RootRef.child("Users").child(currentUserID).child("userState")
-                .updateChildren(onlineStateMap);
-    }
 
 
 

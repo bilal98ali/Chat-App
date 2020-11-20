@@ -17,19 +17,8 @@
     </item>
 
 
-    <item
-        android:title='Settings'
-        android:id="@+id/main_settings_option"
-        app:showAsAction="never"
-        >
-    </item>
 
-    <item
-        android:title='Logout'
-        android:id="@+id/main_logout_option"
-        app:showAsAction="never"
-        >
-    </item>
+
 
 
 </menu>

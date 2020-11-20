@@ -137,11 +137,6 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-    //@Override
-    //public boolean onCreateOptionsMenu(Menu menu) {
-    //MenuInflater inflater = getMenuInflater();
-    //inflater.inflate(R.menu.options_menu,menu);
-    //return true;
 
 
     @Override
@@ -155,31 +150,13 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-    // @Override
-    // public boolean onOptionsItemSelected(MenuItem item)
-    //{
-    //  switch (item.getItemId()) {
-    //    case R.id.main_logout_option:
-    //      mAuth.signOut();
-    //    SendUserToLoginActivity();
-    //  return true;
-    //default:
-    //  return super.onOptionsItemSelected(item);
-    //}
 
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         super.onOptionsItemSelected(item);
 
-//        if (item.getItemId() == R.id.main_logout_option)
-//        {
-            updateUserStatus("offline");
-//            mAuth.signOut();
-//        }
-        if (item.getItemId() == R.id.main_settings_option) {
-            SendUserToSettingsActivity();
-        }
+
         if (item.getItemId() == R.id.main_create_group_option) {
             RequestNewGroup();
         }
