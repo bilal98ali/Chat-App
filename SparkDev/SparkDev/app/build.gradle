@@ -1,4 +1,4 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 
 
 android {
@@ -6,7 +6,7 @@ android {
     buildToolsVersion "30.0.2"
 
     defaultConfig {
-        applicationId "com.example.sparkdev"
+
         minSdkVersion 23
         targetSdkVersion 30
         versionCode 1
@@ -31,7 +31,7 @@ allprojects {
 }
 dependencies {
 
-    implementation project(":insta")
+
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation 'androidx.browser:browser:1.2.0'
     // ^ for phone verification

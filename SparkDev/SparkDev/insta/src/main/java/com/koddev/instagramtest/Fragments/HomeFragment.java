@@ -1,14 +1,18 @@
 package com.koddev.instagramtest.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.sparkdev.MainActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -17,6 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.koddev.instagramtest.Adapter.PostAdapter;
 import com.koddev.instagramtest.Adapter.StoryAdapter;
+import com.koddev.instagramtest.InstaMainActivity;
 import com.koddev.instagramtest.Model.Post;
 import com.koddev.instagramtest.Model.Story;
 import com.koddev.instagramtest.R;
@@ -42,7 +47,7 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-
+        ImageView chatAppButton = (ImageView) view.findViewById(R.id.chat);
         recyclerView = view.findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getContext());
@@ -66,8 +71,16 @@ public class HomeFragment extends Fragment {
 
         checkFollowing();
 
+        chatAppButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sendToChatApp(view);
+            }
+        });
+
         return view;
     }
+
 
     private void checkFollowing(){
         followingList = new ArrayList<>();
@@ -121,6 +134,11 @@ public class HomeFragment extends Fragment {
         });
     }
 
+    public void sendToChatApp(View v) {
+        Intent chatAppIntent = new Intent(v.getContext(), MainActivity.class);
+        startActivity(chatAppIntent);
+    }
+
     private void readStory(){
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Story");
         reference.addValueEventListener(new ValueEventListener() {
@@ -153,4 +171,6 @@ public class HomeFragment extends Fragment {
             }
         });
     }
+
+
 }

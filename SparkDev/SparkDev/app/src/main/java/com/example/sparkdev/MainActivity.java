@@ -25,7 +25,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.koddev.instagramtest.InstaMainActivity;
+//import com.koddev.instagramtest.InstaMainActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -189,10 +189,10 @@ public class MainActivity extends AppCompatActivity
 
                 SendUserToFindFriendsActivity();
         }
-        if (item.getItemId() == R.id.main_Insta_option) {
+        /*if (item.getItemId() == R.id.main_Insta_option) {
 
             SendUserToInstaActivity();
-        }
+        }*/
 
         return true;
     }
@@ -270,12 +270,12 @@ public class MainActivity extends AppCompatActivity
         startActivity(findFriendsIntent);
       //  finish();
     }
-    private void     SendUserToInstaActivity() {
+    /*private void     SendUserToInstaActivity() {
         Intent findFriendsIntent = new Intent(MainActivity.this, InstaMainActivity.class);
         //  findFriendsIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(findFriendsIntent);
         //  finish();
-    }
+    }*/
 
 
     private void updateUserStatus(String state){
