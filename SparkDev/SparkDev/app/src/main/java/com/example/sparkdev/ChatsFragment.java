@@ -82,8 +82,8 @@ public class ChatsFragment extends Fragment {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         if(snapshot.exists()) {
-                            if(snapshot.hasChild("image")) {
-                                retImage[0] = snapshot.child("image").getValue().toString();
+                            if(snapshot.hasChild("imageurl")) {
+                                retImage[0] = snapshot.child("imageurl").getValue().toString();
                                 Picasso.get().load(retImage[0]).into(holder.profileImage);
                             }
                             final String retName = snapshot.child("fullname").getValue().toString();
