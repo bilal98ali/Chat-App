@@ -172,12 +172,11 @@ public class MainActivity extends AppCompatActivity
     public boolean onOptionsItemSelected(MenuItem item) {
         super.onOptionsItemSelected(item);
 
-       /* if (item.getItemId() == R.id.main_logout_option)
-        {
+//        if (item.getItemId() == R.id.main_logout_option)
+//        {
             updateUserStatus("offline");
-            mAuth.signOut();
-            SendUserToLoginActivity();
-        }*/
+//            mAuth.signOut();
+//        }
         if (item.getItemId() == R.id.main_settings_option) {
             SendUserToSettingsActivity();
         }
