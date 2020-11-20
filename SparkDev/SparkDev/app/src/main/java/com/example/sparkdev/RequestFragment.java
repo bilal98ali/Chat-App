@@ -264,16 +264,16 @@ public class RequestFragment extends Fragment {
                                             @Override
                                             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                                                if (snapshot.hasChild("image")) {
+                                                if (snapshot.hasChild("imageurl")) {
 
-                                                    final String requestProfileImage = snapshot.child("image").getValue().toString();
+                                                    final String requestProfileImage = snapshot.child("imageurl").getValue().toString();
 
                                                     Picasso.get().load(requestProfileImage).into(holder.profileImage);
 
                                                 }
 
-                                                final String requestUserName = snapshot.child("name").getValue().toString();
-                                                final String requestUserStatus = snapshot.child("status").getValue().toString();
+                                                final String requestUserName = snapshot.child("fullname").getValue().toString();
+                                                final String requestUserStatus = snapshot.child("bio").getValue().toString();
 
                                                 holder.userName.setText(requestUserName);
                                                 holder.userStatus.setText("You have sent a request to " + requestUserName);
