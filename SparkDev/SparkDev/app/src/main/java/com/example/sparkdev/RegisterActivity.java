@@ -19,6 +19,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.installations.FirebaseInstallations;
+import com.google.firebase.installations.InstallationTokenResult;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -88,17 +90,33 @@ public class RegisterActivity extends AppCompatActivity {
                         {
                             if(task.isSuccessful())
                             {
-                                //SendUserToLoginActivity();
-                                String currentUserID = mAuth.getCurrentUser().getUid();
-                                RootRef.child("Users").child(currentUserID).setValue("");
+                                FirebaseInstallations.getInstance()
+                                        .getToken(true)
+                                        .addOnCompleteListener(new OnCompleteListener<InstallationTokenResult>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<InstallationTokenResult> task) {
+                                                if(task.isSuccessful() && task.getResult() != null) {
 
-                                //SendUserToLoginActivity();
-                                SendUserToMainActivity();
-                                Toast.makeText(RegisterActivity.this, "Account Created Successfully...", Toast.LENGTH_SHORT).show();
-                                //Log.d(TAG, "createUserWithEmail: success");
-                               // FirebaseUser user = mAuth.getCurrentUser();
-                               // updateUI(user);
-                                loadingBar.dismiss();
+                                                    String deviceToken = task.getResult().getToken();
+
+                                                    //SendUserToLoginActivity();
+                                                    String currentUserID = mAuth.getCurrentUser().getUid();
+                                                    RootRef.child("Users").child(currentUserID).setValue("");
+
+                                                    RootRef.child("Users").child(currentUserID).child("device_token")
+                                                            .setValue(deviceToken);
+
+                                                    //SendUserToLoginActivity();
+                                                    SendUserToMainActivity();
+                                                    Toast.makeText(RegisterActivity.this, "Account Created Successfully...", Toast.LENGTH_SHORT).show();
+                                                    //Log.d(TAG, "createUserWithEmail: success");
+                                                    // FirebaseUser user = mAuth.getCurrentUser();
+                                                    // updateUI(user);
+                                                    loadingBar.dismiss();
+                                                }
+                                            }
+                                        });
+
                             }
                             else
                             {
