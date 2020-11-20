@@ -77,7 +77,7 @@ public class InstaLoginActivity extends AppCompatActivity {
 
                                         DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Users")
                                                 .child(auth.getCurrentUser().getUid());
-                                        updateUserStatus("offline");
+                                        updateUserStatus("online");
                                         reference.addValueEventListener(new ValueEventListener() {
                                             @Override
                                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

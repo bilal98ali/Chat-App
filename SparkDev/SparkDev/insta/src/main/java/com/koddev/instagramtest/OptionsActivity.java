@@ -45,7 +45,7 @@ public class OptionsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
                 updateUserStatus("offline");
-                startActivity(new Intent(OptionsActivity.this, InstaLoginActivity.class)
+                startActivity(new Intent(OptionsActivity.this, StartActivity.class)
                         .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
             }
         });
