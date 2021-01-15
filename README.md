@@ -1,6 +1,6 @@
 # PantherHub
 
-![Project Image](https://imgur.com/a/Rs4qjJL)
+![Imgur Image](https://imgur.com/a/Z2Pz2OO)
 
 ---
 
