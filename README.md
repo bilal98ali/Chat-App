@@ -1,7 +1,8 @@
 # PantherHub
 
-![Imgur Image](https://i.imgur.com/Yy6Lhi8.png)
-
+<p align="center">
+  <img width="460" height="300" src="https://i.imgur.com/5TVBcqu.png">
+</p>
 ---
 
 ## What is PantherHub?
