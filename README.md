@@ -15,8 +15,6 @@ PantherHub is an open-source, social media platform aimed towards FIU studentsâ€
 - Google Firebase
 - XML
 
----
-
 ## Development Team
 
 - [Miguel Saravia](https://www.linkedin.com/in/miguel-saravia-leon/), [Daniela Agueros](https://www.linkedin.com/in/daniela-agueros/), [Felipe Dager](https://www.linkedin.com/in/felipe-dager-0b208417a/), [Bilal Ali](https://www.linkedin.com/in/bilal98ali/), [Gabriel Ribeiro](https://www.linkedin.com/in/gabrielgar96/), [Kevin Zheng](https://github.com/kzhen006), [Michael Duboc](https://www.linkedin.com/in/michael-duboc-82b15719b/)
