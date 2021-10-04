@@ -6,7 +6,7 @@
 
 ## What is PantherHub?
 
-PantherHub is an open-source, social media app aimed towards FIU's students (a.k.a "Panthers")—enabling users to upload and share photos, follow others, and chat with others via direct messages or group chats. Functionalities include: registration, login, profile, messaging, etc.
+PantherHub is an open-source, chat app aimed towards FIU's students (a.k.a "Panthers")—enabling users to upload and share photos, follow others, and chat with others via direct messages or group chats. Functionalities include: registration, login, profile, messaging, etc.
 
 ### Languages & Technologies Used:
 
